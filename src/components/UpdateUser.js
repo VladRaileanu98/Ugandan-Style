@@ -1,26 +1,38 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import UserService from "../services/UserService";
 
-const AddUser = () => {
+const UpdateUser = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
   const [user, setUser] = useState({
-    id: "",
+    id: id,
     firstName: "",
     lastName: "",
     email: "",
     password: "",
   });
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await UserService.getUserById(id);
+        setUser(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
 
   const handleChange = (e) => {
     const value = e.target.value;
     setUser({ ...user, [e.target.name]: value });
   };
 
-  const saveUser = (e) => {
+  const updateUser = (e) => {
     e.preventDefault();
-    UserService.saveUser(user)
+    UserService.updateUser(id, user)
       .then((response) => {
         console.log(response);
         navigate("/showAll");
@@ -30,22 +42,11 @@ const AddUser = () => {
       });
   };
 
-  const reset = (e) => {
-    e.preventDefault();
-    setUser({
-      id: "",
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-    });
-  };
-
   return (
     <div className="flex max-w-2xl mx-auto shadow border-b">
       <div className="px-8 py-8">
         <div className="font-thin text-2xl tracking-wider">
-          <h1>add new user</h1>
+          <h1>update user</h1>
         </div>
         <div className="items-center justify-center h-14 w-full my-4">
           <label className="block text-gray-600 text-sm font-normal">
@@ -97,16 +98,16 @@ const AddUser = () => {
         </div>
         <div className="items-center justify-center h-14 w-full my-4 space-x-4 pt-4">
           <button
-            onClick={saveUser}
+            onClick={updateUser}
             className="rounded text-white font-semibold bg-green-400 py-2 px-6 hover:bg-green-700"
           >
-            save
+            update
           </button>
           <button
-            onClick={reset}
+            onClick={() => navigate("/showAll")}
             className="rounded text-white font-semibold bg-red-400 py-2 px-6 hover:bg-red-700"
           >
-            clear
+            cancel
           </button>
         </div>
       </div>
@@ -114,4 +115,4 @@ const AddUser = () => {
   );
 };
 
-export default AddUser;
+export default UpdateUser;
