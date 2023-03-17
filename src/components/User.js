@@ -22,13 +22,13 @@ const User = ({ user, deleteUser }) => {
       <td className="text-right px-1 py-4 whitespace-nowrap font-medium text-sm">
         <a
           onClick={(e, id) => editUser(e, user.id)}
-          className="text-indigo-600 hover:text-indigo-800 px-4 hover:cursor-pointer"
+          className="text-white hover:text-indigo-800 px-4 hover:cursor-pointer font-semibold rounded border bg-slate-600"
         >
           edit
         </a>
         <a
           onClick={(e, id) => deleteUser(e, user.id)}
-          className="text-indigo-600 hover:text-indigo-800 px-4 hover:cursor-pointer"
+          className="text-red-200 hover:text-indigo-800 px-4 hover:cursor-pointer font-semibold rounded border bg-slate-400"
         >
           delete
         </a>

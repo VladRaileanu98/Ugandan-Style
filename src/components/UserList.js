@@ -42,10 +42,16 @@ const UserList = () => {
         >
           add user
         </button>
+        <button
+          onClick={() => navigate("/signUpPage")}
+          className="rounded bg-slate-400 text-white px-6 py-2 font-semibold"
+        >
+          go to login page
+        </button>
       </div>
       <div className="flex shadow border-b">
         <table className="min-w-full">
-          <thead className="bg-gray-100">
+          <thead className="bg-lime-300">
             <tr>
               <th className="text-left font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
                 first name
@@ -62,7 +68,7 @@ const UserList = () => {
             </tr>
           </thead>
           {!loading && (
-            <tbody className="bg-white">
+            <tbody className="bg-lime-100">
               {users.map((user) => (
                 <User user={user} deleteUser={deleteUser} key={user.id}></User>
               ))}
