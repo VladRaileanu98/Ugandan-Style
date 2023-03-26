@@ -54,10 +54,7 @@ const UserList = () => {
           <thead className="bg-lime-300">
             <tr>
               <th className="text-left font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
-                first name
-              </th>
-              <th className="text-left font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
-                last name
+                user name
               </th>
               <th className="text-left font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
                 email id
