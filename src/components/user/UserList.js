@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import UserService from "../services/UserService";
+import UserService from "../../services/UserService";
 import User from "./User";
 
 const UserList = () => {

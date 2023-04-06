@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import UserService from "../services/UserService";
+import CourseService from "../../services/CourseService";
 
-const UpdateUser = () => {
+const UpdateCourse = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [user, setUser] = useState({
+  const [course, setCourse] = useState({
     id: id,
-    username: "",
-    email: "",
-    password: "",
+    name: "",
+    description: "",
   });
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await UserService.getUserById(id);
-        setUser(response.data);
+        const response = await CourseService.getCourseById(id);
+        setCourse(response.data);
       } catch (error) {
         console.log(error);
       }
@@ -26,15 +25,15 @@ const UpdateUser = () => {
 
   const handleChange = (e) => {
     const value = e.target.value;
-    setUser({ ...user, [e.target.name]: value });
+    setCourse({ ...course, [e.target.name]: value });
   };
 
-  const updateUser = (e) => {
+  const updateCourse = (e) => {
     e.preventDefault();
-    UserService.updateUser(id, user)
+    CourseService.updateCourse(id, course)
       .then((response) => {
         console.log(response);
-        navigate("/showAll");
+        navigate("/course/showAll");
       })
       .catch((error) => {
         console.log(error);
@@ -45,53 +44,41 @@ const UpdateUser = () => {
     <div className="flex max-w-2xl mx-auto shadow border-b">
       <div className="px-8 py-8">
         <div className="font-thin text-2xl tracking-wider">
-          <h1>update user</h1>
+          <h1>update course</h1>
         </div>
         <div className="items-center justify-center h-14 w-full my-4">
           <label className="block text-gray-600 text-sm font-normal">
-            user name
+            Course name
           </label>
           <input
             type="text"
-            name="username"
-            value={user.username}
+            name="name"
+            value={course.name}
             onChange={(e) => handleChange(e)}
             className="h-10 w-96 border mt-2 px-2 py-2"
           ></input>
         </div>
         <div className="items-center justify-center h-14 w-full my-4">
           <label className="block text-gray-600 text-sm font-normal">
-            email
+            description
           </label>
           <input
             type="text"
-            name="email"
-            value={user.email}
-            onChange={(e) => handleChange(e)}
-            className="h-10 w-96 border mt-2 px-2 py-2"
-          ></input>
-        </div>
-        <div className="items-center justify-center h-14 w-full my-4">
-          <label className="block text-gray-600 text-sm font-normal">
-            password
-          </label>
-          <input
-            type="password"
-            name="password"
-            value={user.password}
+            name="description"
+            value={course.description}
             onChange={(e) => handleChange(e)}
             className="h-10 w-96 border mt-2 px-2 py-2"
           ></input>
         </div>
         <div className="items-center justify-center h-14 w-full my-4 space-x-4 pt-4">
           <button
-            onClick={updateUser}
+            onClick={updateCourse}
             className="rounded text-white font-semibold bg-green-400 py-2 px-6 hover:bg-green-700"
           >
             update
           </button>
           <button
-            onClick={() => navigate("/showAll")}
+            onClick={() => navigate("/course/showAll")}
             className="rounded text-white font-semibold bg-red-400 py-2 px-6 hover:bg-red-700"
           >
             cancel
@@ -102,4 +89,4 @@ const UpdateUser = () => {
   );
 };
 
-export default UpdateUser;
+export default UpdateCourse;

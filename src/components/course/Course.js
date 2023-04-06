@@ -1,30 +1,30 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const User = ({ user, deleteUser }) => {
+const Course = ({ course, deleteCourse }) => {
   const navigate = useNavigate();
-  const editUser = (e, id) => {
+  const editCourse = (e, id) => {
     e.preventDefault();
-    navigate(`/update/${id}`);
+    navigate(`/course/update/${id}`);
   };
 
   return (
-    <tr key={user.id}>
+    <tr key={course.id}>
       <td className="text-left px-6 py-4 whitespace-nowrap">
-        <div className="text-sm text-gray-500">{user.username}</div>
+        <div className="text-sm text-gray-500">{course.name}</div>
       </td>
       <td className="text-left px-6 py-4 whitespace-nowrap">
-        <div className="text-sm text-gray-500">{user.email}</div>
+        <div className="text-sm text-gray-500">{course.description}</div>
       </td>
       <td className="text-right px-1 py-4 whitespace-nowrap font-medium text-sm">
         <a
-          onClick={(e, id) => editUser(e, user.id)}
+          onClick={(e, id) => editCourse(e, course.id)}
           className="text-white hover:text-indigo-800 px-4 hover:cursor-pointer font-semibold rounded border bg-slate-600"
         >
           edit
         </a>
         <a
-          onClick={(e, id) => deleteUser(e, user.id)}
+          onClick={(e, id) => deleteCourse(e, course.id)}
           className="text-red-200 hover:text-indigo-800 px-4 hover:cursor-pointer font-semibold rounded border bg-slate-400"
         >
           delete
@@ -34,4 +34,4 @@ const User = ({ user, deleteUser }) => {
   );
 };
 
-export default User;
+export default Course;

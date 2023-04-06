@@ -4,7 +4,14 @@ const USER_API_BASE_URL = "http://localhost:8080/user";
 
 class UserService {
   saveUser(username, email, password) {
-    return axios.post("http://localhost:8080/" + "/api/auth/signup", {
+    return axios.post(USER_API_BASE_URL + "/signup", {
+      username,
+      email,
+      password,
+    });
+  }
+  saveUser2(username, email, password) {
+    return axios.post("http://localhost:8080/" + "/api/auth/signUp", {
       username,
       email,
       password,
