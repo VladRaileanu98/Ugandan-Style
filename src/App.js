@@ -18,13 +18,10 @@ function App() {
         <Routes>
           <Route index element={<UserList />} />
           <Route path="/" element={<UserList />} />
-          {/* <Route path="/SignIn" element={<SignIn />} />
-          <Route path="/SignUp" element={<SignUp />} /> */}
           <Route path="/user/showAll" element={<UserList />} />
           <Route path="/course/showAll" element={<CourseList />} />
           <Route path="/signUp" element={<AddUser />} />
           <Route path="/course/add" element={<AddCourse />} />
-          {/* <Route path="/signUpPage" element={<SignUp />} /> */}
           <Route path="/user/update/:id" element={<UpdateUser />} />
           <Route path="/course/update/:id" element={<UpdateCourse />} />
         </Routes>

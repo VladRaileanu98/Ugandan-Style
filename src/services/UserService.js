@@ -22,6 +22,10 @@ class UserService {
     return axios.get(USER_API_BASE_URL + "/showAll");
   }
 
+  getUserCourses(id) {
+    return axios.get(USER_API_BASE_URL + "/showAllCourses/" + id);
+  }
+
   getUserById(id) {
     return axios.get(USER_API_BASE_URL + "/showById" + "/" + id);
   }

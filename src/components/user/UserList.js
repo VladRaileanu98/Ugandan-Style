@@ -59,6 +59,9 @@ const UserList = () => {
               <th className="text-left font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
                 email id
               </th>
+              <th className="text-left font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
+                courses
+              </th>
               <th className="text-right font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
                 actions
               </th>
@@ -66,9 +69,14 @@ const UserList = () => {
           </thead>
           {!loading && (
             <tbody className="bg-lime-100">
-              {users.map((user) => (
-                <User user={user} deleteUser={deleteUser} key={user.id}></User>
-              ))}
+              {users &&
+                users.map((user) => (
+                  <User
+                    user={user}
+                    deleteUser={deleteUser}
+                    key={user.id}
+                  ></User>
+                ))}
             </tbody>
           )}
         </table>

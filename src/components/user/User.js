@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Select from "react-dropdown-select";
 import { useNavigate } from "react-router-dom";
+import UserService from "../../services/UserService";
 
 const User = ({ user, deleteUser }) => {
   const navigate = useNavigate();
@@ -8,6 +10,30 @@ const User = ({ user, deleteUser }) => {
     navigate(`/user/update/${id}`);
   };
 
+  const [courses, setCourses] = useState();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const response = await UserService.getUserCourses(1);
+        setCourses(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+      setLoading(false);
+    };
+    fetchData();
+  }, []);
+
+  const options = [
+    { id: user.email, name: 1 },
+    { id: "Rockvaiv", name: 2 },
+    { id: "Blue", name: 3 },
+    { id: "Yellow", name: 4 },
+  ];
+
   return (
     <tr key={user.id}>
       <td className="text-left px-6 py-4 whitespace-nowrap">
@@ -15,6 +41,33 @@ const User = ({ user, deleteUser }) => {
       </td>
       <td className="text-left px-6 py-4 whitespace-nowrap">
         <div className="text-sm text-gray-500">{user.email}</div>
+      </td>
+      <td className="text-left px-6 py-4 whitespace-nowrap">
+        <Select
+          name="select"
+          options={options}
+          labelField="id"
+          valueField="name"
+        ></Select>
+        <select value={courses} onChange={(e) => setCourses(e.target.value)}>
+          {courses?.map((course) => {
+            return (
+              <option key={course.id}>
+                <p>{course.name}</p>
+              </option>
+            );
+          })}
+        </select>
+        <div>
+          laberinto
+          {courses?.map((course) => {
+            return (
+              <div key={course.id}>
+                <p>{course.name}</p>
+              </div>
+            );
+          })}
+        </div>
       </td>
       <td className="text-right px-1 py-4 whitespace-nowrap font-medium text-sm">
         <a
