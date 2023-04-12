@@ -28,12 +28,14 @@ const User = ({ user, deleteUser }) => {
   }, []);
 
   const options = [
-    { id: user.email, name: 1 },
+    { id: "sada", name: 1 },
     { id: "Rockvaiv", name: 2 },
     { id: "Blue", name: 3 },
     { id: "Yellow", name: 4 },
   ];
-
+  const items = courses?.map((course) => {
+    return { id: course.id, name: course.name };
+  });
   return (
     <tr key={user.id}>
       <td className="text-left px-6 py-4 whitespace-nowrap">
@@ -45,29 +47,10 @@ const User = ({ user, deleteUser }) => {
       <td className="text-left px-6 py-4 whitespace-nowrap">
         <Select
           name="select"
-          options={options}
-          labelField="id"
-          valueField="name"
+          options={items}
+          labelField="name"
+          valueField="id"
         ></Select>
-        <select value={courses} onChange={(e) => setCourses(e.target.value)}>
-          {courses?.map((course) => {
-            return (
-              <option key={course.id}>
-                <p>{course.name}</p>
-              </option>
-            );
-          })}
-        </select>
-        <div>
-          laberinto
-          {courses?.map((course) => {
-            return (
-              <div key={course.id}>
-                <p>{course.name}</p>
-              </div>
-            );
-          })}
-        </div>
       </td>
       <td className="text-right px-1 py-4 whitespace-nowrap font-medium text-sm">
         <a
