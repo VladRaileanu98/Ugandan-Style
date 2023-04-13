@@ -62,6 +62,9 @@ const UserList = () => {
               <th className="text-left font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
                 courses
               </th>
+              <th className="text-left font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
+                navigate
+              </th>
               <th className="text-right font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
                 actions
               </th>

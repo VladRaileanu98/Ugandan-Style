@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Select from "react-dropdown-select";
-import { useNavigate } from "react-router-dom";
+import { createSearchParams, Link, useNavigate } from "react-router-dom";
 import UserService from "../../services/UserService";
 
 const User = ({ user, deleteUser }) => {
@@ -8,6 +8,16 @@ const User = ({ user, deleteUser }) => {
   const editUser = (e, id) => {
     e.preventDefault();
     navigate(`/user/update/${id}`);
+  };
+
+  const userCoursePage = (e, id1, id2) => {
+    e.preventDefault();
+    navigate(`/user/${id1}/course/${id2}`, {
+      state: {
+        userId: id1,
+        courseId: id2,
+      },
+    });
   };
 
   const [courses, setCourses] = useState();
@@ -27,12 +37,12 @@ const User = ({ user, deleteUser }) => {
     fetchData();
   }, []);
 
-  const options = [
-    { id: "sada", name: 1 },
-    { id: "Rockvaiv", name: 2 },
-    { id: "Blue", name: 3 },
-    { id: "Yellow", name: 4 },
-  ];
+  // const options = [
+  //   { id: "sada", name: 1 },
+  //   { id: "Rockvaiv", name: 2 },
+  //   { id: "Blue", name: 3 },
+  //   { id: "Yellow", name: 4 },
+  // ];
   const items = courses?.map((course) => {
     return { id: course.id, name: course.name };
   });
@@ -51,6 +61,14 @@ const User = ({ user, deleteUser }) => {
           labelField="name"
           valueField="id"
         ></Select>
+      </td>
+      <td className="text-left px-6 py-4 whitespace-nowrap">
+        <a
+          onClick={(e, id1, id2) => userCoursePage(e, user.id, items[0].id)}
+          className="text-white hover:text-indigo-800 px-4 hover:cursor-pointer font-semibold rounded border bg-emerald-600"
+        >
+          access
+        </a>
       </td>
       <td className="text-right px-1 py-4 whitespace-nowrap font-medium text-sm">
         <a
