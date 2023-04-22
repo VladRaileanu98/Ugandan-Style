@@ -37,14 +37,8 @@ const User = ({ user, deleteUser }) => {
     fetchData();
   }, []);
 
-  // const options = [
-  //   { id: "sada", name: 1 },
-  //   { id: "Rockvaiv", name: 2 },
-  //   { id: "Blue", name: 3 },
-  //   { id: "Yellow", name: 4 },
-  // ];
   const items = courses?.map((course) => {
-    return { id: course.id, name: course.name };
+    return { object: course, name: course.name };
   });
   return (
     <tr key={user.id}>
@@ -59,12 +53,14 @@ const User = ({ user, deleteUser }) => {
           name="select"
           options={items}
           labelField="name"
-          valueField="id"
+          valueField="object"
         ></Select>
       </td>
       <td className="text-left px-6 py-4 whitespace-nowrap">
         <a
-          onClick={(e, id1, id2) => userCoursePage(e, user.id, items[0].id)}
+          onClick={(e, id1, id2) =>
+            userCoursePage(e, user.username, items[0].object.id)
+          }
           className="text-white hover:text-indigo-800 px-4 hover:cursor-pointer font-semibold rounded border bg-emerald-600"
         >
           access
