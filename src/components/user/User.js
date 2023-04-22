@@ -12,7 +12,7 @@ const User = ({ user, deleteUser }) => {
 
   const userCoursePage = (e, id1, id2) => {
     e.preventDefault();
-    navigate(`/user/${id1}/course/${id2}`, {
+    navigate(`/user/${user.id}/course/${id2}`, {
       state: {
         userId: id1,
         courseId: id2,
@@ -27,7 +27,7 @@ const User = ({ user, deleteUser }) => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await UserService.getUserCourses(1);
+        const response = await UserService.getUserCourses(user.id);
         setCourses(response.data);
       } catch (error) {
         console.log(error);
