@@ -5,7 +5,8 @@ const UserCoursePage = () => {
   return (
     <>
       <div className="text-3xl text-center">
-        some information user's course page
+        This is {location.state.userId}'s course page on{" "}
+        {location.state.courseId}
       </div>
       <br />
       <div className="text-2xl text-center">

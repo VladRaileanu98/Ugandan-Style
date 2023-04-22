@@ -22,7 +22,7 @@ const User = ({ user, deleteUser }) => {
 
   const [courses, setCourses] = useState();
   const [loading, setLoading] = useState(true);
-
+  const [aValue, setAValue] = useState();
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -38,7 +38,7 @@ const User = ({ user, deleteUser }) => {
   }, []);
 
   const items = courses?.map((course) => {
-    return { object: course, name: course.name };
+    return { id: course.id, name: course.name };
   });
   return (
     <tr key={user.id}>
@@ -53,17 +53,16 @@ const User = ({ user, deleteUser }) => {
           name="select"
           options={items}
           labelField="name"
-          valueField="object"
+          valueField="id"
+          onChange={(items) => setAValue(items[0].name)}
         ></Select>
       </td>
       <td className="text-left px-6 py-4 whitespace-nowrap">
         <a
-          onClick={(e, id1, id2) =>
-            userCoursePage(e, user.username, items[0].object.id)
-          }
+          onClick={(e, id1, id2) => userCoursePage(e, user.username, aValue)}
           className="text-white hover:text-indigo-800 px-4 hover:cursor-pointer font-semibold rounded border bg-emerald-600"
         >
-          access
+          access {aValue}
         </a>
       </td>
       <td className="text-right px-1 py-4 whitespace-nowrap font-medium text-sm">
