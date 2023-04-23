@@ -9,6 +9,7 @@ import UpdateCourse from "./components/course/UpdateCourse";
 import UserList from "./components/user/UserList";
 import CourseList from "./components/course/CourseList";
 import UserCoursePage from "./components/UserCoursePage";
+import EmbeddedVideo from "./components/EmbeddedVideo";
 // import SignIn from "./components/SignIn";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/user/update/:id" element={<UpdateUser />} />
           <Route path="/course/update/:id" element={<UpdateCourse />} />
           <Route path="/user/:id/course/:id" element={<UserCoursePage />} />
+          <Route path="/embedded/video" element={<EmbeddedVideo />} />
         </Routes>
       </BrowserRouter>
     </>

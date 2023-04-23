@@ -16,6 +16,9 @@ const Course = ({ course, deleteCourse }) => {
       <td className="text-left px-6 py-4 whitespace-nowrap">
         <div className="text-sm text-gray-500">{course.description}</div>
       </td>
+      <td className="text-left px-6 py-4 whitespace-nowrap">
+        <div className="text-sm text-gray-500">{course.embedLink}</div>
+      </td>
       <td className="text-right px-1 py-4 whitespace-nowrap font-medium text-sm">
         <a
           onClick={(e, id) => editCourse(e, course.id)}

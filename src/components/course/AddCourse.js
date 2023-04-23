@@ -7,6 +7,7 @@ const AddCourse = () => {
     id: "",
     name: "",
     description: "",
+    embedLink: "",
   });
 
   const navigate = useNavigate();
@@ -34,6 +35,7 @@ const AddCourse = () => {
       id: "",
       name: "",
       description: "",
+      embedLink: "",
     });
   };
 
@@ -63,6 +65,18 @@ const AddCourse = () => {
             type="text"
             name="description"
             value={course.description}
+            onChange={(e) => handleChange(e)}
+            className="h-10 w-96 border mt-2 px-2 py-2"
+          ></input>
+        </div>
+        <div className="items-center justify-center h-14 w-full my-4">
+          <label className="block text-gray-600 text-sm font-normal">
+            embed link
+          </label>
+          <input
+            type="text"
+            name="embedLink"
+            value={course.embedLink}
             onChange={(e) => handleChange(e)}
             className="h-10 w-96 border mt-2 px-2 py-2"
           ></input>
