@@ -54,12 +54,12 @@ const User = ({ user, deleteUser }) => {
           options={items}
           labelField="name"
           valueField="id"
-          onChange={(items) => setAValue(items[0].name)}
+          onChange={(items) => setAValue(items[0].id)}
         ></Select>
       </td>
       <td className="text-left px-6 py-4 whitespace-nowrap">
         <a
-          onClick={(e, id1, id2) => userCoursePage(e, user.username, aValue)}
+          onClick={(e, id1, id2) => userCoursePage(e, user.id, aValue)}
           className="text-white hover:text-indigo-800 px-4 hover:cursor-pointer font-semibold rounded border bg-emerald-600"
         >
           access {aValue}

@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const EmbeddedVideo = () => {
+  var embedLink = "https://www.youtube.com/embed/_W7wqQwa-TU";
   return (
     <div>
       <Container>
@@ -11,7 +12,7 @@ const EmbeddedVideo = () => {
           <iframe
             width="560"
             height="315"
-            src="https://www.youtube.com/embed/PLAlEF9LWQc"
+            src={embedLink}
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
