@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Select from "react-dropdown-select";
-import { createSearchParams, Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import UserService from "../../services/UserService";
+import CourseService from "../../services/CourseService";
 
 const User = ({ user, deleteUser }) => {
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ const User = ({ user, deleteUser }) => {
   const [courses, setCourses] = useState();
   const [loading, setLoading] = useState(true);
   const [aValue, setAValue] = useState();
+
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -35,7 +37,7 @@ const User = ({ user, deleteUser }) => {
       setLoading(false);
     };
     fetchData();
-  }, []);
+  });
 
   const items = courses?.map((course) => {
     return { id: course.id, name: course.name };
@@ -62,7 +64,7 @@ const User = ({ user, deleteUser }) => {
           onClick={(e, id1, id2) => userCoursePage(e, user.id, aValue)}
           className="text-white hover:text-indigo-800 px-4 hover:cursor-pointer font-semibold rounded border bg-emerald-600"
         >
-          access {aValue}
+          access {(e, id) => CourseService.getCourseById(e, aValue).name}
         </a>
       </td>
       <td className="text-right px-1 py-4 whitespace-nowrap font-medium text-sm">

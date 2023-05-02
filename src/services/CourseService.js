@@ -16,7 +16,7 @@ class CourseService {
   }
 
   getCourseById(id) {
-    return axios.get(USER_API_BASE_URL + "/showById" + "/" + id);
+    return axios.get(USER_API_BASE_URL + "/showById/" + id);
   }
 
   updateCourse(id, course) {

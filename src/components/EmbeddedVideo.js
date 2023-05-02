@@ -1,9 +1,13 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const EmbeddedVideo = () => {
   var embedLink = "https://www.youtube.com/embed/_W7wqQwa-TU";
+
+  const location = useLocation();
+
   return (
     <div>
       <Container>
@@ -12,7 +16,7 @@ const EmbeddedVideo = () => {
           <iframe
             width="560"
             height="315"
-            src={embedLink}
+            src={location.state.courseLink}
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
