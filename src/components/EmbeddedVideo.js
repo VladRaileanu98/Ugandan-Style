@@ -4,8 +4,6 @@ import { Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const EmbeddedVideo = () => {
-  var embedLink = "https://www.youtube.com/embed/_W7wqQwa-TU";
-
   const location = useLocation();
 
   return (
