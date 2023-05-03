@@ -9,7 +9,7 @@ const EmbeddedVideo = () => {
   return (
     <div>
       <Container>
-        <h1>Hello world!</h1>
+        <h1>{location.state.courseDescription}</h1>
         <div className="ratio ratio-16x9">
           <iframe
             width="560"

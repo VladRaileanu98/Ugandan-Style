@@ -43,10 +43,10 @@ const CourseList = () => {
           add course
         </button>
         <button
-          onClick={() => navigate("/signUpPage")}
+          onClick={() => navigate("/user/showAll")}
           className="rounded bg-slate-400 text-white px-6 py-2 font-semibold"
         >
-          go to login page
+          go to users page
         </button>
       </div>
       <div className="flex shadow border-b">
