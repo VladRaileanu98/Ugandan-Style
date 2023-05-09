@@ -64,6 +64,19 @@ import CourseList from "./components/course/CourseList";
 import UserCoursePage from "./components/UserCoursePage";
 import EmbeddedVideo from "./components/EmbeddedVideo";
 
+import ListQuizComponent from "./components/trainer/ListQuizComponent";
+import ListQuestionComponent from "./components/trainer/ListQuestionComponent";
+import ListChoiceComponent from "./components/trainer/ListChoiceComponent";
+import AddQuizComponent from "./components/trainer/AddQuizComponent";
+import AddQuestionComponent from "./components/trainer/AddQuestionComponent";
+import AddChoiceComponent from "./components/trainer/AddChoiceComponent";
+import UpdateQuizComponent from "./components/trainer/UpdateQuizComponent";
+import UpdateQuestionComponent from "./components/trainer/UpdateQuestionComponent";
+import UpdateChoiceComponent from "./components/trainer/UpdateChoiceComponent";
+import ListCourseQuizzes from "./components/trainer/ListCourseQuizzes";
+import ListQuizQuestions from "./components/trainer/ListQuizQuestions";
+import ListQuestionChoices from "./components/trainer/ListQuestionChoices";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -162,6 +175,7 @@ class App extends Component {
             <Route path="/embedded/video" element={<EmbeddedVideo />} />
             {/* quiz forms */}
             <Route path="/quizzes" element={<ListQuizComponent />}></Route>
+            <Route path="/add-quiz" element={<AddQuizComponent />}></Route>
             <Route
               path="/edit-quiz/:id"
               element={<UpdateQuizComponent />}
@@ -178,11 +192,6 @@ class App extends Component {
               path="/edit-question/:id"
               element={<UpdateQuestionComponent />}
             ></Route>
-            <Route
-              path="/course/:id/add-quiz"
-              element={<AddQuizComponent />}
-            ></Route>
-
             <Route path="/choices" element={<ListChoiceComponent />}></Route>
             <Route
               path="/question/:id/add-choice"
@@ -200,18 +209,16 @@ class App extends Component {
               path="/quiz/:id/questions"
               element={<ListQuizQuestions />}
             ></Route>
-
             <Route
-              forceRefresh={true}
               path="/question/:id/choices"
               element={<ListQuestionChoices />}
             ></Route>
 
-            <Route
+            {/* <Route
               forceRefresh={true}
               path="/quiz/:id/take"
               element={<QuizTaker />}
-            ></Route>
+            ></Route> */}
           </Routes>
         </div>
       </>

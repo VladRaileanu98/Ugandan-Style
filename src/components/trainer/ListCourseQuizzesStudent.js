@@ -13,7 +13,7 @@ function ListQuizComponent() {
 
   const getAllQuizzesByCourseId = () => {
     axios
-      .get("http://localhost:8082/course/quizzes/" + id) //pt ca cu QuizService.getAllQuestionsByQuiz(id) nu mergea
+      .get("http://localhost:8080/course/quizzes/" + id) //pt ca cu QuizService.getAllQuestionsByQuiz(id) nu mergea
       .then((response) => {
         setQuizzes(response.data);
         console.log(response.data);

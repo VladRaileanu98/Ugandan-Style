@@ -13,7 +13,7 @@ const ListChoiceComponent = () => {
 
   const getAllChoicesByQuestion = () => {
     axios
-      .get("http://localhost:8082/api/v1/questions/choices/" + id)
+      .get("http://localhost:8080/api/v1/questions/choices/" + id)
       .then((response) => {
         setChoices(response.data);
         console.log(response.data);
@@ -26,23 +26,20 @@ const ListChoiceComponent = () => {
   return (
     <div className="container">
       <h2 className="text-center"> List Question no.{id} Choices </h2>
-      <Link
-        to={`/question/${id}/add-choice`}
-        className="btn btn-primary"
-      >
+      <Link to={`/question/${id}/add-choice`} className="btn btn-primary">
         {" "}
         Add Choice to question no.{id}
       </Link>
       <table className="table table-bordered table-striped">
-        <thead style={{ textAlign: 'center' }}>
+        <thead style={{ textAlign: "center" }}>
           <th> Choice Id </th>
           <th> Choice answer</th>
           <th> Choice isCorrect </th>
           {/* <th> Action </th> */}
         </thead>
-        <tbody >
+        <tbody>
           {choices.map((choice) => (
-            <tr style={{ textAlign: 'center' }} key={choice.id}>
+            <tr style={{ textAlign: "center" }} key={choice.id}>
               <td> {choice.id} </td>
               <td> {choice.answer} </td>
               <td> {JSON.stringify(choice.isCorrect)}</td>

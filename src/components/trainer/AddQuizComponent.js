@@ -19,7 +19,7 @@ const AddQuizComponent = () => {
       .then((response) => {
         console.log("response din save quiz" + JSON.stringify(response.data));
         axios.put(
-          "http://localhost:8082/course/quizzes/add/" +
+          "http://localhost:8080/course/quizzes/add/" +
             id +
             "/" +
             response.data.id
