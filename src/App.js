@@ -160,6 +160,58 @@ class App extends Component {
             <Route path="/course/update/:id" element={<UpdateCourse />} />
             <Route path="/user/:id/course/:id" element={<UserCoursePage />} />
             <Route path="/embedded/video" element={<EmbeddedVideo />} />
+            {/* quiz forms */}
+            <Route path="/quizzes" element={<ListQuizComponent />}></Route>
+            <Route
+              path="/edit-quiz/:id"
+              element={<UpdateQuizComponent />}
+            ></Route>
+            <Route
+              path="/questions"
+              element={<ListQuestionComponent />}
+            ></Route>
+            <Route
+              path="/quiz/:id/add-question"
+              element={<AddQuestionComponent />}
+            ></Route>
+            <Route
+              path="/edit-question/:id"
+              element={<UpdateQuestionComponent />}
+            ></Route>
+            <Route
+              path="/course/:id/add-quiz"
+              element={<AddQuizComponent />}
+            ></Route>
+
+            <Route path="/choices" element={<ListChoiceComponent />}></Route>
+            <Route
+              path="/question/:id/add-choice"
+              element={<AddChoiceComponent />}
+            ></Route>
+            <Route
+              path="/edit-choice/:id"
+              element={<UpdateChoiceComponent />}
+            ></Route>
+            <Route
+              path="/course/:id/quizzes"
+              element={<ListCourseQuizzes />}
+            ></Route>
+            <Route
+              path="/quiz/:id/questions"
+              element={<ListQuizQuestions />}
+            ></Route>
+
+            <Route
+              forceRefresh={true}
+              path="/question/:id/choices"
+              element={<ListQuestionChoices />}
+            ></Route>
+
+            <Route
+              forceRefresh={true}
+              path="/quiz/:id/take"
+              element={<QuizTaker />}
+            ></Route>
           </Routes>
         </div>
       </>
