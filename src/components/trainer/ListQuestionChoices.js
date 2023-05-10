@@ -13,7 +13,7 @@ const ListChoiceComponent = () => {
 
   const getAllChoicesByQuestion = () => {
     axios
-      .get("http://localhost:8080/api/v1/questions/choices/" + id)
+      .get("http://localhost:8080/question/choices/" + id)
       .then((response) => {
         setChoices(response.data);
         console.log(response.data);

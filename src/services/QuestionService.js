@@ -11,11 +11,15 @@ class QuestionService {
     return axios.get(QUESTION_BASE_REST_API_URL, quest);
   }
   createQuestion(quest) {
-    return axios.post(QUESTION_BASE_REST_API_URL, quest);
+    return axios.post(QUESTION_BASE_REST_API_URL + "/create", quest);
   }
 
   getQuestionById(questionId) {
     return axios.get(QUESTION_BASE_REST_API_URL, +"/" + questionId);
+  }
+
+  getAllChoicesByQuestion(questionId) {
+    return axios.get(QUESTION_BASE_REST_API_URL, +"/choices/" + questionId);
   }
 
   addChoice(questionId, choiceId) {

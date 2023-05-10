@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const CHOICE_BASE_REST_API_URL = "http://localhost:8080/choices";
+const CHOICE_BASE_REST_API_URL = "http://localhost:8080/choice";
 
 class ChoiceService {
   getAllChoices() {
@@ -8,7 +8,7 @@ class ChoiceService {
   }
 
   createChoice(choice) {
-    return axios.post(CHOICE_BASE_REST_API_URL, choice);
+    return axios.post(CHOICE_BASE_REST_API_URL + "/create", choice);
   }
 
   getChoiceById(choiceId) {

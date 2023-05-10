@@ -1,13 +1,11 @@
-import React, { useEffect, useState ,} from "react";
-import { Link , useParams} from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import QuizService from "../../services/QuizService";
 
-
-
-function ListQuizComponent(){
+function ListQuizComponent() {
   const [quizzes, setQuizzes] = useState([]);
-  const {id} = useParams();
-  
+  const { id } = useParams();
+
   useEffect(() => {
     getAllQuizzes();
   }, []);
@@ -33,55 +31,60 @@ function ListQuizComponent(){
       });
   };
 
-
   return (
     <div className="container">
       <h2 className="text-center"> List Quizzes </h2>
-      <Link to="/add-quiz" className="btn btn-primary">
+      <Link to="/course/1/add-quiz" className="btn btn-primary">
         {" "}
         Add Quiz
       </Link>
       <table className="table table-bordered table-striped">
-        <thead style={{ textAlign: 'center' }}>
+        <thead style={{ textAlign: "center" }}>
           <th> Quiz Id </th>
           <th> Quiz noOfQuestions</th>
           <th> Quiz timeLimit </th>
           <th> Quiz deadline</th>
           <th> Quiz isVisible </th>
-          <th> Questions </th> 
+          <th> Questions </th>
           <th> Test </th>
         </thead>
         <tbody>
-          {
-          quizzes.map(
-            quiz => 
-            <tr style={{ textAlign: 'center' }} key={quiz.id}>
+          {quizzes.map((quiz) => (
+            <tr style={{ textAlign: "center" }} key={quiz.id}>
               <td> {quiz.id} </td>
               <td> {quiz.noOfQuestions} </td>
               <td> {quiz.timeLimit} </td>
               <td> {quiz.deadline} </td>
               <td> {JSON.stringify(quiz.isVisible)} </td>
               <td>
-                <Link to={`/quiz/${quiz.id}/questions`} className="btn btn-success">
+                <Link
+                  to={`/quiz/${quiz.id}/questions`}
+                  className="btn btn-success"
+                >
                   List Quiz Questions
                 </Link>
               </td>
               <td>
-              <Link to={`/quiz/${quiz.id}/take`} className="btn btn-warning">
+                <Link to={`/quiz/${quiz.id}/take`} className="btn btn-warning">
                   test quiz
                 </Link>
-                 <Link className="btn btn-info" to={`/edit-quiz/${quiz.id}`} >Update</Link>
-                <button className="btn btn-danger" onClick={() => deleteQuiz(quiz.id)} style={{ marginLeft: "10px" }}>
+                <Link className="btn btn-info" to={`/edit-quiz/${quiz.id}`}>
+                  Update
+                </Link>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => deleteQuiz(quiz.id)}
+                  style={{ marginLeft: "10px" }}
+                >
                   Delete
-                </button>  
+                </button>
               </td>
             </tr>
-          )
-          }
+          ))}
         </tbody>
       </table>
     </div>
   );
-};
+}
 
 export default ListQuizComponent;

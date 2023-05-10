@@ -175,7 +175,10 @@ class App extends Component {
             <Route path="/embedded/video" element={<EmbeddedVideo />} />
             {/* quiz forms */}
             <Route path="/quizzes" element={<ListQuizComponent />}></Route>
-            <Route path="/add-quiz" element={<AddQuizComponent />}></Route>
+            <Route
+              path="/course/:id/add-quiz"
+              element={<AddQuizComponent />}
+            ></Route>
             <Route
               path="/edit-quiz/:id"
               element={<UpdateQuizComponent />}
