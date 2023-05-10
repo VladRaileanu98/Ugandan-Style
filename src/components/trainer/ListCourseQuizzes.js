@@ -29,10 +29,14 @@ function ListQuizComponent() {
       });
   };
 
-  if (cookies.role === "student") {
+  if (cookies.role !== "student") {
     return (
       <div className="container">
         <h2 className="text-center"> Course No. {id} Quizzes </h2>
+        <Link to={`/course/${id}/add-quiz`} className="btn btn-primary">
+          {" "}
+          Add Quiz to course no.{id}
+        </Link>
         <Link to={`/course/${id}`} className="btn btn-danger">
           Take me back to course no. {id}
         </Link>
@@ -54,6 +58,12 @@ function ListQuizComponent() {
                 <td> {quiz.deadline} </td>
                 <td> {JSON.stringify(quiz.isVisible)} </td>
                 <td>
+                  <Link
+                    to={`/quiz/${quiz.id}/questions`}
+                    className="btn btn-success"
+                  >
+                    List Quiz Questions
+                  </Link>
                   <Link
                     to={`/quiz/${quiz.id}/take`}
                     className="btn btn-warning"

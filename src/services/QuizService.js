@@ -25,7 +25,7 @@ class QuizService {
 
   addQuestion(quizId, questionId) {
     axios.put(
-      QUIZ_BASE_REST_API_URL + "/questions/add/" + quizId + "/" + questionId
+      QUIZ_BASE_REST_API_URL + "/questions/add/" + questionId + "/" + quizId
     );
   }
 

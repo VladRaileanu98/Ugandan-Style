@@ -7,27 +7,26 @@ const AddChoiceComponent = () => {
   const [choiceId, setChoiceId] = useState("");
   const [answer, setAnswer] = useState("");
   const [isCorrect, setCorrect] = useState(false);
-  const toggleCorrect = () => setCorrect(value => !value);
+  const toggleCorrect = () => setCorrect((value) => !value);
   const navigate = useNavigate();
   const { id } = useParams();
-  
+
   let savedVariable = id;
 
   const createChoice = (e) => {
     e.preventDefault();
 
-    const choiceEntity = {choiceId, answer, isCorrect };
-      ChoiceService.createChoice(choiceEntity)
-        .then((response) => {
-          console.log(response.data);
-          QuestionService.addChoice(savedVariable, response.data.id)
-          navigate(`/question/${id}/choices`);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-        
-    
+    const choiceEntity = { choiceId, answer, isCorrect };
+    ChoiceService.createChoice(choiceEntity)
+      .then((response) => {
+        console.log(response.data);
+        QuestionService.addChoice(response.data.id, savedVariable);
+        navigate(`/question/${savedVariable}/choices/`);
+        //navigate(`/question/${id}/choices`);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   useEffect(() => {
@@ -40,17 +39,17 @@ const AddChoiceComponent = () => {
       .catch((error) => {
         console.log(error);
       });
-      setCorrect(prevCheck => !prevCheck);
+    setCorrect((prevCheck) => !prevCheck);
   }, [id]);
 
   return (
     <div>
       <br />
       <br />
-      <div >
+      <div>
         <div className="row">
           <div className="card col-md-6 offset-md-3 offset-md-3">
-          <h2 className="text-center"> Add Choice to question no.{id} </h2>
+            <h2 className="text-center"> Add Choice to question no.{id} </h2>
             <div className="card-body">
               <form>
                 <div className="form-group mb-2">
@@ -79,7 +78,7 @@ const AddChoiceComponent = () => {
                 >
                   Save Choice
                 </button>
-                <Link to="/choices" className="btn btn-danger">
+                <Link to={`/question/${id}/choices`} className="btn btn-danger">
                   Cancel
                 </Link>
               </form>

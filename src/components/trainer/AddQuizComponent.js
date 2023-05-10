@@ -19,10 +19,7 @@ const AddQuizComponent = () => {
       .then((response) => {
         console.log("response din save quiz" + JSON.stringify(response.data));
         axios.put(
-          "http://localhost:8080/course/quizzes/add/" +
-            id +
-            "/" +
-            response.data.id
+          "http://localhost:8080/course/add/" + response.data.id + "/" + id
         );
         navigate(`/course/${id}/quizzes`);
         console.log("this is the course id: " + id);
@@ -94,7 +91,7 @@ const AddQuizComponent = () => {
                 >
                   Save Quiz
                 </button>
-                <Link to="/quizzes" className="btn btn-danger">
+                <Link to={`/course/${id}/quizzes`} className="btn btn-danger">
                   Cancel
                 </Link>
               </form>

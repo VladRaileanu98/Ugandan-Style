@@ -9,7 +9,7 @@ const ListChoiceComponent = () => {
   useEffect(() => {
     getAllChoicesByQuestion(id);
     console.log(`this is the question id: ${id}`);
-  }, [id]);
+  }, []);
 
   const getAllChoicesByQuestion = () => {
     axios

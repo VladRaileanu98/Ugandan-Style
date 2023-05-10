@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import QuestionService from "../../services/QuestionService";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import QuizService from "../../services/QuizService"
+import QuizService from "../../services/QuizService";
 
 const AddQuestionComponent = () => {
   const [question, setQuestion] = useState("");
@@ -13,22 +13,22 @@ const AddQuestionComponent = () => {
     e.preventDefault();
     const questionEntity = { question, score };
 
-      QuestionService.createQuestion(questionEntity)
+    QuestionService.createQuestion(questionEntity)
       .then((response) => {
         console.log(response.data);
-        console.log("questionId: "+response.data.id+" and quizId: "+id);
+        console.log("questionId: " + response.data.id + " and quizId: " + id);
         QuizService.addQuestion(id, response.data.id); //****************************** ASSIGN QUESTION TO QUIZ SOLUTION********************************************************** */
         navigate(`/quiz/${id}/questions`);
         console.log("this is the quiz id: " + id);
-          console.log("this is the question id: " + response.data.id);
+        console.log("this is the question id: " + response.data.id);
       })
       .catch((error) => {
         console.log(error);
-      }); 
-  }
+      });
+  };
 
   useEffect(() => {
-    console.log('page is fully loaded');
+    console.log("page is fully loaded");
     QuestionService.getQuestionById(id)
       .then((response) => {
         setQuestion(response.data.question);
@@ -39,15 +39,14 @@ const AddQuestionComponent = () => {
       });
   }, [id]);
 
-
   return (
     <div>
       <br />
       <br />
-      <div >
+      <div>
         <div className="row">
           <div className="card col-md-6 offset-md-3 offset-md-3">
-          <h2 className="text-center"> Add Question to quiz no.{id}</h2>
+            <h2 className="text-center"> Add Question to quiz no.{id}</h2>
             <div className="card-body">
               <form>
                 <div className="form-group mb-2">
@@ -72,16 +71,16 @@ const AddQuestionComponent = () => {
                     value={score}
                     onChange={(e) => setScore(e.target.value)}
                   ></input>
-                </div> 
+                </div>
                 <button
                   className="btn btn-success"
                   onClick={(e) => createQuestion(e)}
                 >
                   Save Question
                 </button>
-               <Link to={`/quiz/${id}/questions`} className="btn btn-danger">
+                <Link to={`/quiz/${id}/questions`} className="btn btn-danger">
                   Cancel
-                </Link>  
+                </Link>
               </form>
             </div>
           </div>

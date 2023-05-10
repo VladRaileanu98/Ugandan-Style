@@ -180,6 +180,10 @@ class App extends Component {
               element={<AddQuizComponent />}
             ></Route>
             <Route
+              path="/course/:id/quizzes"
+              element={<ListCourseQuizzes />}
+            ></Route>
+            <Route
               path="/edit-quiz/:id"
               element={<UpdateQuizComponent />}
             ></Route>
