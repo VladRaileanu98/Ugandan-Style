@@ -14,7 +14,6 @@ function ListQuizComponent() {
 
   useEffect(() => {
     getAllQuizzesByCourseId(id);
-    console.log(`this is the quiz id: ${id}`);
   }, [id]);
 
   const getAllQuizzesByCourseId = () => {
@@ -58,6 +57,12 @@ function ListQuizComponent() {
                 <td> {quiz.deadline} </td>
                 <td> {JSON.stringify(quiz.isVisible)} </td>
                 <td>
+                  {/* <Link
+                    to={`/wantedInformation/${quiz.id}`}
+                    className="btn btn-success"
+                  >
+                    go to information
+                  </Link> */}
                   <Link
                     to={`/quiz/${quiz.id}/questions`}
                     className="btn btn-success"
