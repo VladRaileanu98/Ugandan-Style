@@ -5,7 +5,7 @@ export default class Homepage extends Component {
     return (
       <div>
         <header>
-          <nav class="bg-white border-gray-200 dark:bg-gray-900">
+          <nav class="bg-lime-100 border-gray-200 dark:bg-gray-900">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
               <a href="https://flowbite.com/" class="flex items-center">
                 <img
@@ -88,139 +88,80 @@ export default class Homepage extends Component {
           </nav>
         </header>
 
-        <body>
-          <div class="flex flex-wrap justify-center mt-10">
+        <body class="bg-lime-200">
+          <div class="flex flex-wrap justify-center mt-10 border-2">
             <div class="p-4 max-w-sm">
-              <div class="flex rounded-lg h-full bg-green-600 p-8 flex-col">
+              <div class="flex rounded-lg h-full bg-green-400 p-8 flex-col">
                 <div class="flex items-center mb-3">
-                  <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      class="w-5 h-5"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                    </svg>
-                  </div>
-                  <h2 class="text-white text-lg font-medium">Course 1</h2>
+                  <img
+                    src="assets/forest1.jpg"
+                    alt="forest1"
+                    class="w-full h-80 sm:h48 object-cover"
+                  />
                 </div>
                 <div class="flex flex-col justify-between flex-grow">
-                  <p class="leading-relaxed text-base text-white">
-                    Blue bottle crucifix vinyl post-ironic four dollar toast
-                    vegan taxidermy. Gastropub indxgo juice poutine.
-                  </p>
-                  <a
-                    href="#"
-                    class="mt-3 text-black hover:text-blue-600 inline-flex items-center"
-                  >
-                    Learn More
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      class="w-4 h-4 ml-2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                  </a>
+                  <div class="m-4">
+                    <span class="font-bold">Course 1</span>
+                    <span class="block text-gray-500 text-sm">
+                      Recipe by Mario
+                    </span>
+                  </div>
+                  <div class="badge">
+                    <span>25 mins</span>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div class="p-4 max-w-sm">
-              <div class="flex rounded-lg h-full bg-green-600 p-8 flex-col">
+              <div class="flex rounded-lg h-full bg-green-400 p-8 flex-col border-2">
                 <div class="flex items-center mb-3">
-                  <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      class="w-5 h-5"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                    </svg>
-                  </div>
-                  <h2 class="text-white text-lg font-medium">Course 2</h2>
+                  <img
+                    src="assets/forest2.jpg"
+                    alt="forest1"
+                    class="w-full h-80 sm:h48 object-cover"
+                  />
                 </div>
                 <div class="flex flex-col justify-between flex-grow">
-                  <p class="leading-relaxed text-base text-white">
-                    Lorem ipsum dolor sit amet. In quos laboriosam non neque
-                    eveniet 33 nihil molestias. Rem perspiciatis iure ut laborum
-                    inventore et maxime amet.
-                  </p>
-                  <a
-                    href="#"
-                    class="mt-3 text-black hover:text-blue-600 inline-flex items-center"
-                  >
-                    Learn More
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      class="w-4 h-4 ml-2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                  </a>
+                  <div class="m-4">
+                    <span class="font-bold">Course 2</span>
+                    <span class="block text-gray-500 text-sm">
+                      Recipe by Mario
+                    </span>
+                  </div>
+                  <div class="badge">
+                    <span>25 mins</span>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div class="p-4 max-w-sm">
-              <div class="flex rounded-lg h-full bg-green-600 p-8 flex-col">
-                <div class="flex items-center mb-3">
-                  <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
-                    <img
-                      src="assets/forest1.jpg"
-                      alt="forest1"
-                      class="w-full h-50 sm:h48 object-cover"
-                    />
-                  </div>
-                  <h2 class="text-white text-lg font-medium">Course 3</h2>
+              <div class="flex rounded-lg h-full bg-green-400 p-8 flex-col border-2">
+                <div class="flex items-center mb-0">
+                  <img
+                    src="assets/forest3.jpg"
+                    alt="forest1"
+                    class="w-full h-80 sm:h48 object-cover"
+                  />
                 </div>
                 <div class="flex flex-col justify-between flex-grow">
-                  <p class="leading-relaxed text-base text-white">
-                    Lorem ipsum dolor sit amet. In quos laboriosam non neque
-                    eveniet 33 nihil molestias. Rem perspiciatis iure ut laborum
-                    inventore et maxime amet.
-                  </p>
-                  <a
-                    href="#"
-                    class="mt-3 text-black hover:text-blue-600 inline-flex items-center"
-                  >
-                    Learn More
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      class="w-4 h-4 ml-2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                  </a>
+                  <div class="m-4">
+                    <span class="font-bold">Course 3</span>
+                    <span class="block text-gray-500 text-sm">
+                      Recipe by Mario
+                    </span>
+                  </div>
+                  <div class="badge">
+                    <span>25 mins</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </body>
 
-        <footer>
+        <footer class="bg-lime-300">
           <div class="container mx-auto px-4">@copyright</div>
         </footer>
       </div>
