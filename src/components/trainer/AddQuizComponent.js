@@ -24,6 +24,7 @@ const AddQuizComponent = () => {
         navigate(`/course/${id}/quizzes`);
         console.log("this is the course id: " + id);
         console.log("this is the quiz id: " + response.data.id);
+        console.log(JSON.stringify(response.data));
       })
       .catch((error) => {
         console.log(error);

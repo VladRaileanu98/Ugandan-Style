@@ -8,7 +8,11 @@ class QuizService {
   }
 
   getAllQuestionsByQuiz(quizId) {
-    return axios.get(QUIZ_BASE_REST_API_URL, +"/questions/" + quizId);
+    return axios.get(QUIZ_BASE_REST_API_URL + "/questions/" + quizId);
+  }
+
+  getCourseId(quizId) {
+    return axios.get(QUIZ_BASE_REST_API_URL + "/" + quizId + "/course");
   }
 
   createQuiz(quiz) {

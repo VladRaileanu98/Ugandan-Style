@@ -18,6 +18,10 @@ class QuestionService {
     return axios.get(QUESTION_BASE_REST_API_URL, +"/" + questionId);
   }
 
+  getQuizId(questionId) {
+    return axios.get(QUESTION_BASE_REST_API_URL + "/" + questionId + "/quiz");
+  }
+
   getAllChoicesByQuestion(questionId) {
     return axios.get(QUESTION_BASE_REST_API_URL, +"/choices/" + questionId);
   }

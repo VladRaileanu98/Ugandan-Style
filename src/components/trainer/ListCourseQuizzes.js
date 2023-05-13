@@ -36,7 +36,7 @@ function ListQuizComponent() {
           {" "}
           Add Quiz to course no.{id}
         </Link>
-        <Link to={`/course/${id}`} className="btn btn-danger">
+        <Link to={`/course/showAll`} className="btn btn-danger">
           Take me back to course no. {id}
         </Link>
         <table className="table table-bordered table-striped">

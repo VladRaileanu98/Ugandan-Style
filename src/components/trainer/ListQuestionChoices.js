@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import QuestionService from "../../services/QuestionService";
 
 const ListChoiceComponent = () => {
   const [choices, setChoices] = useState([]);
+  const [quizId, setQuizId] = useState();
   const { id } = useParams();
 
   useEffect(() => {
     getAllChoicesByQuestion(id);
+    getQuestionQuizId(id);
     console.log(`this is the question id: ${id}`);
   }, []);
 
@@ -23,12 +26,27 @@ const ListChoiceComponent = () => {
       });
   };
 
+  const getQuestionQuizId = () => {
+    QuestionService.getQuizId(id)
+      .then((response) => {
+        setQuizId(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div className="container">
       <h2 className="text-center"> List Question no.{id} Choices </h2>
       <Link to={`/question/${id}/add-choice`} className="btn btn-primary">
         {" "}
         Add Choice to question no.{id}
+      </Link>
+      <Link to={`/quiz/${quizId}/questions`} className="btn btn-danger">
+        {" "}
+        go back to question no.{id}
       </Link>
       <table className="table table-bordered table-striped">
         <thead style={{ textAlign: "center" }}>

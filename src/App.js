@@ -209,6 +209,7 @@ class App extends Component {
               element={<UpdateChoiceComponent />}
             ></Route>
             <Route
+              forceRefresh={true}
               path="/course/:id/quizzes"
               element={<ListCourseQuizzes />}
             ></Route>
