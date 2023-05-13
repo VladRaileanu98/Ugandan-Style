@@ -1,43 +1,3 @@
-// import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
-// import "./App.css";
-// import Navbar from "./components/Navbar";
-// import AddUser from "./components/user/AddUser";
-// import UpdateUser from "./components/user/UpdateUser";
-// import UserList from "./components/user/UserList";
-// import AddCourse from "./components/course/AddCourse";
-// import UpdateCourse from "./components/course/UpdateCourse";
-// import CourseList from "./components/course/CourseList";
-// import SignUp from "./components/SignUp";
-// import SignIn from "./components/SignIn";
-
-// import UserCoursePage from "./components/UserCoursePage";
-// import EmbeddedVideo from "./components/EmbeddedVideo";
-// // import SignIn from "./components/SignIn";
-
-// function App() {
-//   return (
-//     <>
-//       <BrowserRouter>
-//         <Navbar />
-//         <Routes>
-//           <Route index element={<UserList />} />
-//           <Route path="/" element={<UserList />} />
-//           <Route path="/user/showAll" element={<UserList />} />
-//           <Route path="/course/showAll" element={<CourseList />} />
-//           <Route path="/signUp" element={<AddUser />} />
-//           <Route path="/course/add" element={<AddCourse />} />
-//           <Route path="/user/update/:id" element={<UpdateUser />} />
-//           <Route path="/course/update/:id" element={<UpdateCourse />} />
-//           <Route path="/user/:id/course/:id" element={<UserCoursePage />} />
-//           <Route path="/embedded/video" element={<EmbeddedVideo />} />
-//         </Routes>
-//       </BrowserRouter>
-//     </>
-//   );
-// }
-
-// export default App;
-
 import { Route, Routes, Link } from "react-router-dom";
 import "./App.css";
 
@@ -51,6 +11,7 @@ import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
 import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
+import QuizTaker from "./components/QuizTaker";
 import EventBus from "./common/EventBus";
 import { Component } from "react";
 
@@ -221,12 +182,11 @@ class App extends Component {
               path="/question/:id/choices"
               element={<ListQuestionChoices />}
             ></Route>
-
-            {/* <Route
+            <Route
               forceRefresh={true}
               path="/quiz/:id/take"
               element={<QuizTaker />}
-            ></Route> */}
+            ></Route>
           </Routes>
         </div>
       </>
