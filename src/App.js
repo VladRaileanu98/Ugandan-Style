@@ -38,6 +38,9 @@ import ListCourseQuizzes from "./components/trainer/ListCourseQuizzes";
 import ListQuizQuestions from "./components/trainer/ListQuizQuestions";
 import ListQuestionChoices from "./components/trainer/ListQuestionChoices";
 
+//WEBSITE-2.0
+import Homepage from "./components/website-2.0/Homepage";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -85,7 +88,7 @@ class App extends Component {
     return (
       <>
         <div>
-          <nav class="flex items-center justify-between flex-wrap bg-slate-800 p-6">
+          {/* <nav class="flex items-center justify-between flex-wrap bg-slate-800 p-6">
             {currentUser ? (
               <div class="flex items-center flex-shrink-0 text-white mr-6">
                 <li>
@@ -114,8 +117,11 @@ class App extends Component {
                 </li>
               </div>
             )}
-          </nav>
+          </nav> */}
           <Routes>
+            {/*WEBSITE 2.0*/}
+            <Route path="/homepage" element={<Homepage />}></Route>
+
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="/login" element={<Login />} />
