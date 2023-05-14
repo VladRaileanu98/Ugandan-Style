@@ -20,10 +20,14 @@ const Course = ({ course, deleteCourse }) => {
         <div className="text-sm text-gray-500">{course.name}</div>
       </td>
       <td className="text-left px-6 py-4 whitespace-nowrap">
-        <div className="text-sm text-gray-500">{course.description}</div>
+        <div className="text-sm text-gray-500">
+          {course.description.substring(0, 9) + ".."}
+        </div>
       </td>
       <td className="text-left px-6 py-4 whitespace-nowrap">
-        <div className="text-sm text-gray-500">{course.embedLink}</div>
+        <div className="text-sm text-gray-500">
+          {course.embedLink.substring(0, 9) + ".."}
+        </div>
       </td>
       <td className="text-left px-6 py-4 whitespace-nowrap">
         <div className="text-sm text-gray-500">{course.quizList.length}</div>
