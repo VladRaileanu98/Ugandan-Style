@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Cookies, useCookies } from "react-cookie";
+import CourseService from "../../services/CourseService";
 
 function ListQuizComponent() {
   const [cookies, setCookie, removeCookie] = useCookies([
@@ -9,6 +10,7 @@ function ListQuizComponent() {
     "email",
     "role",
   ]);
+
   const [quizzes, setQuizzes] = useState([]);
   const { id } = useParams();
 
@@ -48,37 +50,41 @@ function ListQuizComponent() {
             <th> Quiz isVisible </th>
             <th> Test </th>
           </thead>
-          <tbody>
-            {quizzes.map((quiz) => (
-              <tr style={{ textAlign: "center" }} key={quiz.id}>
-                <td> {quiz.id} </td>
-                <td> {quiz.noOfQuestions} </td>
-                <td> {quiz.timeLimit} </td>
-                <td> {quiz.deadline} </td>
-                <td> {JSON.stringify(quiz.isVisible)} </td>
-                <td>
-                  {/* <Link
-                    to={`/wantedInformation/${quiz.id}`}
-                    className="btn btn-success"
-                  >
-                    go to information
-                  </Link> */}
-                  <Link
-                    to={`/quiz/${quiz.id}/questions`}
-                    className="btn btn-success"
-                  >
-                    List Quiz Questions
-                  </Link>
-                  <Link
-                    to={`/quiz/${quiz.id}/take`}
-                    className="btn btn-warning"
-                  >
-                    Take quiz
-                  </Link>
-                </td>
-              </tr>
-            ))}
-          </tbody>
+          {quizzes?.length ? (
+            <tbody>
+              {quizzes.map((quiz) => (
+                <tr style={{ textAlign: "center" }} key={quiz.id}>
+                  <td> {quiz.id} </td>
+                  <td> {quiz.noOfQuestions} </td>
+                  <td> {quiz.timeLimit} </td>
+                  <td> {quiz.deadline} </td>
+                  <td> {JSON.stringify(quiz.isVisible)} </td>
+                  <td>
+                    {/* <Link
+                to={`/wantedInformation/${quiz.id}`}
+                className="btn btn-success"
+              >
+                go to information
+              </Link> */}
+                    <Link
+                      to={`/quiz/${quiz.id}/questions`}
+                      className="btn btn-success"
+                    >
+                      List Quiz Questions
+                    </Link>
+                    <Link
+                      to={`/quiz/${quiz.id}/take`}
+                      className="btn btn-warning"
+                    >
+                      Take quiz
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          ) : (
+            <p>no quizzes to display</p>
+          )}
         </table>
       </div>
     );

@@ -62,6 +62,9 @@ const CourseList = () => {
               <th className="text-left font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
                 embedLink
               </th>
+              <th className="text-left font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
+                no. of quizzes
+              </th>
               <th className="text-right font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
                 actions
               </th>

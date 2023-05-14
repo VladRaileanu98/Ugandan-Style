@@ -15,6 +15,10 @@ class CourseService {
     return axios.get(USER_API_BASE_URL + "/showAll");
   }
 
+  getCourseQuizzes(id) {
+    return axios.get(USER_API_BASE_URL + "/quizzes/" + id);
+  }
+
   getCourseById(id) {
     return axios.get(USER_API_BASE_URL + "/showById/" + id);
   }

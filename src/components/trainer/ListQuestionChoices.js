@@ -55,23 +55,27 @@ const ListChoiceComponent = () => {
           <th> Choice isCorrect </th>
           {/* <th> Action </th> */}
         </thead>
-        <tbody>
-          {choices.map((choice) => (
-            <tr style={{ textAlign: "center" }} key={choice.id}>
-              <td> {choice.id} </td>
-              <td> {choice.answer} </td>
-              <td> {JSON.stringify(choice.isCorrect)}</td>
-              {/* <td>
-                <Link
-                  to={`/edit-choice/${choice.id}`}
-                  className="btn btn-success"
-                >
-                  Edit choice {choice.id}
-                </Link>
-              </td> */}
-            </tr>
-          ))}
-        </tbody>
+        {choices?.length ? (
+          <tbody>
+            {choices.map((choice) => (
+              <tr style={{ textAlign: "center" }} key={choice.id}>
+                <td> {choice.id} </td>
+                <td> {choice.answer} </td>
+                <td> {JSON.stringify(choice.isCorrect)}</td>
+                {/* <td>
+                  <Link
+                    to={`/edit-choice/${choice.id}`}
+                    className="btn btn-success"
+                  >
+                    Edit choice {choice.id}
+                  </Link>
+                </td> */}
+              </tr>
+            ))}
+          </tbody>
+        ) : (
+          <p>no choices to display</p>
+        )}
       </table>
     </div>
   );

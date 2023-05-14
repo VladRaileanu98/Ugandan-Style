@@ -55,24 +55,28 @@ function ListQuestionComponent() {
           <th> no. of choices </th>
           <th> action: </th>
         </thead>
-        <tbody>
-          {questions.map((questionE) => (
-            <tr style={{ textAlign: "center" }} key={questionE.id}>
-              <td> {questionE.id} </td>
-              <td> {questionE.question} </td>
-              <td> {questionE.score} </td>
-              <td> {questionE.noOfChoices} </td>
-              <td>
-                <Link
-                  to={`/question/${questionE.id}/choices`}
-                  className="btn btn-success"
-                >
-                  List Question Choices
-                </Link>
-              </td>
-            </tr>
-          ))}
-        </tbody>
+        {questions?.length ? (
+          <tbody>
+            {questions.map((questionE) => (
+              <tr style={{ textAlign: "center" }} key={questionE.id}>
+                <td> {questionE.id} </td>
+                <td> {questionE.question} </td>
+                <td> {questionE.score} </td>
+                <td> {questionE.noOfChoices} </td>
+                <td>
+                  <Link
+                    to={`/question/${questionE.id}/choices`}
+                    className="btn btn-success"
+                  >
+                    List Question Choices
+                  </Link>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        ) : (
+          <p>no questions to display</p>
+        )}
       </table>
     </div>
   );
