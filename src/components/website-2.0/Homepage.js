@@ -106,7 +106,7 @@ function Homepage() {
       </header>
 
       <body class="bg-lime-200">
-        <div class="min-h-screen bg-yellow-300 flex justify-center items-center py-20">
+        <div class="min-h-screen from bg-gradient-to-r from-gray-500  to-gray-900 flex justify-center items-center py-20">
           <div class="container mx-auto p-12 bg-gray-100 rounded-xl">
             <h1 class="text-4xl uppercase font-bold from-current mb-8">
               Responsive dynamic cards

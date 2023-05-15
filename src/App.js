@@ -41,6 +41,7 @@ import ListQuestionChoices from "./components/trainer/ListQuestionChoices";
 //WEBSITE-2.0
 import Homepage from "./components/website-2.0/Homepage";
 import LoginPage from "./components/website-2.0/LoginPage";
+import Modulepage from "./components/website-2.0/Modulepage";
 
 class App extends Component {
   constructor(props) {
@@ -123,6 +124,7 @@ class App extends Component {
             {/*WEBSITE 2.0*/}
             <Route path="/loginpage" element={<LoginPage />}></Route>
             <Route path="/homepage" element={<Homepage />}></Route>
+            <Route path="/modulepage" element={<Modulepage />}></Route>
 
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
