@@ -5,7 +5,7 @@ function Homepage() {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    const response = getAllCourses();
+    getAllCourses();
   }, []);
 
   const getAllCourses = () => {
