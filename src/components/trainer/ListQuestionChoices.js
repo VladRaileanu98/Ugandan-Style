@@ -62,14 +62,14 @@ const ListChoiceComponent = () => {
                 <td> {choice.id} </td>
                 <td> {choice.answer} </td>
                 <td> {JSON.stringify(choice.isCorrect)}</td>
-                {/* <td>
+                <td>
                   <Link
                     to={`/edit-choice/${choice.id}`}
-                    className="btn btn-success"
+                    className="btn btn-alert"
                   >
                     Edit choice {choice.id}
                   </Link>
-                </td> */}
+                </td>
               </tr>
             ))}
           </tbody>

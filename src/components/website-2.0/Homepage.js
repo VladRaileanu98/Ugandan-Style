@@ -24,14 +24,14 @@ function Homepage() {
       <header>
         <nav class="bg-gray-300 border-gray-200 dark:bg-gray-900">
           <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="https://flowbite.com/" class="flex items-center">
-              <img
+            <a href="https://oracle.com/" class="flex items-center">
+              {/* <img
                 src="https://flowbite.com/docs/images/logo.svg"
                 class="h-8 mr-3"
                 alt="Flowbite Logo"
-              />
-              <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                Flowbite
+              /> */}
+              <span class="text-gray-900 pl-11 self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+                Oracle
               </span>
             </a>
             <button
@@ -61,10 +61,10 @@ function Homepage() {
                 <li>
                   <a
                     href="#"
-                    class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+                    class="block py-2 pl-3 pr-4   rounded md:bg-transparent md:text-gray-700 md:p-0 dark:text-white md:dark:text-blue-500"
                     aria-current="page"
                   >
-                    Home
+                    Page 1
                   </a>
                 </li>
                 <li>
@@ -72,7 +72,7 @@ function Homepage() {
                     href="#"
                     class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                   >
-                    About
+                    Page 2
                   </a>
                 </li>
                 <li>
@@ -80,7 +80,7 @@ function Homepage() {
                     href="#"
                     class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                   >
-                    Services
+                    Page 3
                   </a>
                 </li>
                 <li>
@@ -88,7 +88,7 @@ function Homepage() {
                     href="#"
                     class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                   >
-                    Pricing
+                    Page 4
                   </a>
                 </li>
                 <li>
@@ -96,7 +96,7 @@ function Homepage() {
                     href="#"
                     class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                   >
-                    Contact
+                    Page 5
                   </a>
                 </li>
               </ul>
@@ -172,7 +172,7 @@ function Homepage() {
           <div class="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left">
             <a class="flex items-center justify-center font-medium text-gray-900 title-font md:justify-start">
               <svg
-                class="w-auto h-5 text-gray-900 fill-current"
+                class="w-auto h-5 text-gray-100 fill-current"
                 viewBox="0 0 202 69"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -182,10 +182,10 @@ function Homepage() {
                 />
               </svg>
             </a>
-            <p class="mt-2 text-sm text-gray-500">Design, Code and Ship!</p>
+            <p class="mt-2 text-sm text-gray-500">tailwind css</p>
             <div class="mt-4">
               <span class="inline-flex justify-center mt-2 sm:ml-auto sm:mt-0 sm:justify-start">
-                <a class="text-gray-500 cursor-pointer hover:text-gray-700">
+                <a class="text-gray-900 cursor-pointer hover:text-gray-700">
                   <svg
                     fill="currentColor"
                     stroke-linecap="round"
@@ -197,7 +197,7 @@ function Homepage() {
                     <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
                   </svg>
                 </a>
-                <a class="ml-3 text-gray-500 cursor-pointer hover:text-gray-700">
+                <a class="ml-3 text-gray-900 cursor-pointer hover:text-gray-700">
                   <svg
                     fill="currentColor"
                     stroke-linecap="round"
@@ -209,7 +209,7 @@ function Homepage() {
                     <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
                   </svg>
                 </a>
-                <a class="ml-3 text-gray-500 cursor-pointer hover:text-gray-700">
+                <a class="ml-3 text-gray-900 cursor-pointer hover:text-gray-700">
                   <svg
                     fill="none"
                     stroke="currentColor"
@@ -230,7 +230,7 @@ function Homepage() {
                     <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
                   </svg>
                 </a>
-                <a class="ml-3 text-gray-500 cursor-pointer hover:text-gray-700">
+                <a class="ml-3 text-gray-900 cursor-pointer hover:text-gray-700">
                   <svg
                     fill="currentColor"
                     stroke="currentColor"
@@ -253,88 +253,88 @@ function Homepage() {
           <div class="flex flex-wrap flex-grow mt-10 -mb-10 text-center md:pl-20 md:mt-0 md:text-left">
             <div class="w-full px-4 lg:w-1/4 md:w-1/2">
               <h2 class="mb-3 text-sm font-medium tracking-widest text-gray-900 uppercase title-font">
-                About
+                section 1
               </h2>
               <nav class="mb-10 list-none">
                 <li class="mt-3">
                   <a class="text-gray-500 cursor-pointer hover:text-gray-900">
-                    Company
+                    ~
                   </a>
                 </li>
                 <li class="mt-3">
                   <a class="text-gray-500 cursor-pointer hover:text-gray-900">
-                    Careers
+                    ~
                   </a>
                 </li>
                 <li class="mt-3">
                   <a class="text-gray-500 cursor-pointer hover:text-gray-900">
-                    Blog
+                    ~
                   </a>
                 </li>
               </nav>
             </div>
             <div class="w-full px-4 lg:w-1/4 md:w-1/2">
               <h2 class="mb-3 text-sm font-medium tracking-widest text-gray-900 uppercase title-font">
-                Support
+                section 2
               </h2>
               <nav class="mb-10 list-none">
                 <li class="mt-3">
                   <a class="text-gray-500 cursor-pointer hover:text-gray-900">
-                    Contact Support
+                    ~
                   </a>
                 </li>
                 <li class="mt-3">
                   <a class="text-gray-500 cursor-pointer hover:text-gray-900">
-                    Help Resources
+                    ~
                   </a>
                 </li>
                 <li class="mt-3">
                   <a class="text-gray-500 cursor-pointer hover:text-gray-900">
-                    Release Updates
+                    ~
                   </a>
                 </li>
               </nav>
             </div>
             <div class="w-full px-4 lg:w-1/4 md:w-1/2">
               <h2 class="mb-3 text-sm font-medium tracking-widest text-gray-900 uppercase title-font">
-                Platform
+                section 3
               </h2>
               <nav class="mb-10 list-none">
                 <li class="mt-3">
                   <a class="text-gray-500 cursor-pointer hover:text-gray-900">
-                    Terms &amp; Privacy
+                    ~
                   </a>
                 </li>
                 <li class="mt-3">
                   <a class="text-gray-500 cursor-pointer hover:text-gray-900">
-                    Pricing
+                    ~
                   </a>
                 </li>
                 <li class="mt-3">
                   <a class="text-gray-500 cursor-pointer hover:text-gray-900">
-                    FAQ
+                    ~
                   </a>
                 </li>
               </nav>
             </div>
             <div class="w-full px-4 lg:w-1/4 md:w-1/2">
               <h2 class="mb-3 text-sm font-medium tracking-widest text-gray-900 uppercase title-font">
-                Contact
+                section 4
               </h2>
               <nav class="mb-10 list-none">
                 <li class="mt-3">
                   <a class="text-gray-500 cursor-pointer hover:text-gray-900">
-                    Send a Message
+                    ~
                   </a>
                 </li>
                 <li class="mt-3">
                   <a class="text-gray-500 cursor-pointer hover:text-gray-900">
-                    Request a Quote
+                    ~
                   </a>
                 </li>
                 <li class="mt-3">
                   <a class="text-gray-500 cursor-pointer hover:text-gray-900">
-                    +123-456-7890
+                    ~
                   </a>
                 </li>
               </nav>
@@ -344,7 +344,7 @@ function Homepage() {
         <div class="bg-gray-300">
           <div class="container px-5 py-4 mx-auto">
             <p class="text-sm text-gray-700 capitalize xl:text-center">
-              © 2020 All rights reserved{" "}
+              © 2023 All rights reserved{" "}
             </p>
           </div>
         </div>

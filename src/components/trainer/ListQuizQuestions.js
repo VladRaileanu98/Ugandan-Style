@@ -70,6 +70,12 @@ function ListQuestionComponent() {
                   >
                     List Question Choices
                   </Link>
+                  <Link
+                    to={`/edit-question/${questionE.id}`}
+                    className="btn btn-alert"
+                  >
+                    edit Question
+                  </Link>
                 </td>
               </tr>
             ))}

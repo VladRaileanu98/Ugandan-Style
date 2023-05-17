@@ -78,6 +78,12 @@ function ListQuizComponent() {
                     >
                       Take quiz
                     </Link>
+                    <Link
+                      to={`/edit-quiz/${quiz.id}`}
+                      className="btn btn-alert"
+                    >
+                      edit quiz
+                    </Link>
                   </td>
                 </tr>
               ))}

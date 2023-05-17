@@ -6,48 +6,57 @@ const AddQuizComponent = () => {
   const [timeLimit, setTimelimit] = useState("");
   const [deadline, setDeadline] = useState("");
   const [isVisible, setVisible] = useState(false);
-  const toggleVisible = () => setVisible(value => !value);
+  const [courseId, setCourseId] = useState();
+  const toggleVisible = () => setVisible((value) => !value);
   const navigate = useNavigate();
   const { id } = useParams();
 
   const saveOrUpdateQuiz = (e) => {
     e.preventDefault();
-    const quizEntity = { timeLimit, deadline , isVisible};
-    
-      QuizService.updateQuiz(id, quizEntity)
-        .then((response) => {
-          navigate("/quizzes");
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    
+    const quizEntity = { timeLimit, deadline, isVisible };
+
+    QuizService.updateQuiz(id, quizEntity)
+      .then((response) => {
+        navigate(`/course/${courseId}/quizzes`);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const getQuizCourseId = () => {
+    QuizService.getCourseId(id)
+      .then((response) => {
+        setCourseId(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   useEffect(() => {
     QuizService.getQuizById(id)
       .then((response) => {
         console.log(response.data);
-        setTimelimit(response.data.timeLimit)
-        setDeadline(response.data.deadline)
+        setTimelimit(response.data.timeLimit);
+        setDeadline(response.data.deadline);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
-  }, [id])
 
+    getQuizCourseId(id);
+  }, [id]);
 
- 
- 
-  
   return (
     <div>
       <br />
       <br />
-      <div >
+      <div>
         <div className="row">
           <div className="card col-md-6 offset-md-3 offset-md-3">
-          <h2 className="text-center"> Update Quiz </h2>
+            <h2 className="text-center"> Update Quiz </h2>
             <div className="card-body">
               <form>
                 <div className="form-group mb-2">
@@ -61,7 +70,7 @@ const AddQuizComponent = () => {
                     onChange={(e) => setTimelimit(e.target.value)}
                   ></input>
                 </div>
-                
+
                 <div className="form-group mb-2">
                   <label className="form-label"> Quiz deadline: </label>
                   <input
@@ -73,7 +82,7 @@ const AddQuizComponent = () => {
                     onChange={(e) => setDeadline(e.target.value)}
                   ></input>
                 </div>
-                
+
                 <div className="form-group mb-2">
                   <label className="form-label"> isVisible: </label>
                 </div>
@@ -89,7 +98,10 @@ const AddQuizComponent = () => {
                 >
                   Save Quiz
                 </button>
-                <Link to="/quizzes" className="btn btn-danger">
+                <Link
+                  to={`/course/${courseId}/quizzes`}
+                  className="btn btn-danger"
+                >
                   Cancel
                 </Link>
               </form>

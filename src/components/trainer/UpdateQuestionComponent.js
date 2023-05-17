@@ -5,6 +5,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 const AddQuestionComponent = () => {
   const [question, setQuestion] = useState("");
   const [score, setScore] = useState("");
+  const [quizId, setQuizId] = useState();
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -12,18 +13,29 @@ const AddQuestionComponent = () => {
     e.preventDefault();
     const questionEntity = { question, score };
 
-      QuestionService.updateQuestion(id,questionEntity)
+    QuestionService.updateQuestion(id, questionEntity)
       .then((response) => {
         console.log(response.data);
-        navigate(`/questions`);
+        navigate(`/quiz/${quizId}/questions`);
       })
       .catch((error) => {
         console.log(error);
       });
-  }
+  };
+
+  const getQuestionQuizId = () => {
+    QuestionService.getQuizId(id)
+      .then((response) => {
+        setQuizId(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   useEffect(() => {
-    console.log('page is fully loaded');
+    console.log("page is fully loaded");
     QuestionService.getQuestionById(id)
       .then((response) => {
         setQuestion(response.data.question);
@@ -32,17 +44,18 @@ const AddQuestionComponent = () => {
       .catch((error) => {
         console.log(error);
       });
+
+    getQuestionQuizId();
   }, [id]);
 
   return (
     <div>
       <br />
       <br />
-      <div >
+      <div>
         <div className="row">
-        
           <div className="card col-md-6 offset-md-3 offset-md-3">
-          <h2 className="text-center"> Update Question </h2>
+            <h2 className="text-center"> Update Question </h2>
             <div className="card-body">
               <form>
                 <div className="form-group mb-2">
@@ -68,17 +81,16 @@ const AddQuestionComponent = () => {
                     value={score}
                     onChange={(e) => setScore(e.target.value)}
                   ></input>
-            
-                </div> 
+                </div>
                 <button
                   className="btn btn-success"
                   onClick={(e) => updateQuestion(e)}
                 >
                   Save Question
                 </button>
-                 <Link to={`/quiz/${id}/questions`} className="btn btn-danger">
+                <Link to={`/quiz/${id}/questions`} className="btn btn-danger">
                   Cancel
-                </Link> 
+                </Link>
               </form>
             </div>
           </div>

@@ -15,6 +15,10 @@ class ChoiceService {
     return axios.get(CHOICE_BASE_REST_API_URL, +"/" + choiceId);
   }
 
+  getQuestionId(choiceId) {
+    return axios.get(CHOICE_BASE_REST_API_URL + "/" + choiceId + "/question");
+  }
+
   updateChoice(choiceId, choice) {
     return axios.put(CHOICE_BASE_REST_API_URL + "/" + choiceId, choice);
   }

@@ -5,23 +5,35 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 const AddChoiceComponent = () => {
   const [answer, setAnswer] = useState("");
   const [isCorrect, setCorrect] = useState(false);
-  const toggleCorrect = () => setCorrect(value => !value);
+  const [questionId, setQuestionId] = useState();
+  const toggleCorrect = () => setCorrect((value) => !value);
   const navigate = useNavigate();
   const { id } = useParams();
-  
+
   const updateChoice = (e) => {
     e.preventDefault();
 
     const choiceEntity = { answer, isCorrect };
-  ChoiceService.updateChoice(id, choiceEntity)
-        .then((response) => {
-          navigate(`/choices`);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-        console.log("choice updating..")
-      };
+    ChoiceService.updateChoice(id, choiceEntity)
+      .then((response) => {
+        navigate(`/question/${questionId}/choices`);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    console.log("choice updating..");
+  };
+
+  const getChoiceQuestionId = () => {
+    ChoiceService.getQuestionId(id)
+      .then((response) => {
+        setQuestionId(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   useEffect(() => {
     ChoiceService.getChoiceById(id)
@@ -32,18 +44,18 @@ const AddChoiceComponent = () => {
       .catch((error) => {
         console.log(error);
       });
-      setCorrect(prevCheck => !prevCheck);
+    setCorrect((prevCheck) => !prevCheck);
+    getChoiceQuestionId();
   }, [id]);
-
 
   return (
     <div>
       <br />
       <br />
-      <div >
+      <div>
         <div className="row">
           <div className="card col-md-6 offset-md-3 offset-md-3">
-          <h2 className="text-center"> Update Choice </h2>
+            <h2 className="text-center"> Update Choice </h2>
             <div className="card-body">
               <form>
                 <div className="form-group mb-2">
@@ -72,7 +84,10 @@ const AddChoiceComponent = () => {
                 >
                   Save Choice
                 </button>
-                <Link to="/choices" className="btn btn-danger">
+                <Link
+                  to={`/question/${questionId}/choices`}
+                  className="btn btn-danger"
+                >
                   Cancel
                 </Link>
               </form>

@@ -13,7 +13,7 @@ const Quiz = ({
 }) => {
   return (
     <section
-      className="bg-black text-white"
+      className="bg-gradient-to-r from-gray-500  to-gray-900 text-white"
       style={{ display: `${showQuiz ? "block" : "none"}` }}
     >
       <div className="container">

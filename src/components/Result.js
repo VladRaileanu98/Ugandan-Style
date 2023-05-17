@@ -48,7 +48,7 @@ const Result = ({ showResult, quizs, marks, quizScore, startOver }) => {
                 {marks > (quizs.length * 1) / 2 ? "Good job!" : "Try again!"}
               </h1>
               <h3 className="mb-3 fw-bold">
-                Your score is {} out of {quizScore}
+                Your score is {marks} out of {quizScore}
               </h3>
 
               <button
