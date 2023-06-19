@@ -34,8 +34,8 @@ const CourseList = () => {
   };
 
   return (
-    <body>
-      <div className="container mx-auto my-8 ">
+    <body className="min-h-screen bg-emerald-200">
+      <div className="container mx-auto my-50 ">
         <div className="h-12">
           <button
             onClick={() => navigate("/course/add")}

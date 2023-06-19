@@ -28,15 +28,21 @@ export default class Profile extends Component {
     const { currentUser } = this.state;
 
     return (
-      <div class="bg-gradient-to-r from-gray-100  to-gray-400">
-        <div className="container bg-gradient-to-r from-gray-300  to-gray-500">
+      <div className="min-h-screen bg-emerald-200">
+        <body className="container bg-white">
           {this.state.userReady ? (
             <div>
-              <header className="jumbotron bg-gradient-to-r from-gray-500  to-gray-900">
+              <div className="jumbotron bg-gradient-to-r from-emerald-200  to-emerald-900">
                 <h3>
-                  <strong>{currentUser.username}</strong> Profile
+                  <strong>{currentUser.username}'s</strong> profile
                 </h3>
-              </header>
+                <a
+                  href="/homepage"
+                  class="bg-emerald-500 hover:bg-emerald-700  text-white font-bold py-2 px-4 border-b-4 border-emerald-700 hover:border-emerald-500 rounded"
+                >
+                  go to homepage
+                </a>
+              </div>
               <p>
                 <strong>Token:</strong>{" "}
                 {currentUser.accessToken.substring(0, 20)} ...{" "}
@@ -59,7 +65,7 @@ export default class Profile extends Component {
               </ul>
             </div>
           ) : null}
-        </div>
+        </body>
       </div>
     );
   }

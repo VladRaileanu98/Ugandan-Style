@@ -122,87 +122,181 @@ export default class Register extends Component {
 
   render() {
     return (
-      <div className="col-md-12">
-        <div className="card card-container">
-          <img
-            src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-            alt="profile-img"
-            className="profile-img-card"
-          />
+      <div>
+        <body class="bg-lime-200">
+          <div class="min-h-screen from bg-gradient-to-r from-gray-500  to-gray-900 flex justify-center items-center py-20">
+            <div className="col-md-12 ">
+              <div className="card card-container">
+                <img
+                  src="https://res.protv.ro/assets/protv/2022/10/14/image_galleries/94541/cum-mai-arata-nicolae-guta-acum-si-cati-bani-a-cheltuit-pentru-tatuajul-de-pe-frunte_1_1_1_size19.jpg"
+                  alt="profile-img"
+                  className="profile-img-card"
+                />
 
-          <Form
-            onSubmit={this.handleRegister}
-            ref={(c) => {
-              this.form = c;
-            }}
-          >
-            {!this.state.successful && (
-              <div>
-                <div className="form-group">
-                  <label htmlFor="username">Username</label>
-                  <Input
-                    type="text"
-                    className="form-control"
-                    name="username"
-                    value={this.state.username}
-                    onChange={this.onChangeUsername}
-                    validations={[required, vusername]}
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="email">Email</label>
-                  <Input
-                    type="text"
-                    className="form-control"
-                    name="email"
-                    value={this.state.email}
-                    onChange={this.onChangeEmail}
-                    validations={[required, email]}
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="password">Password</label>
-                  <Input
-                    type="password"
-                    className="form-control"
-                    name="password"
-                    value={this.state.password}
-                    onChange={this.onChangePassword}
-                    validations={[required, vpassword]}
-                  />
-                </div>
-
-                <div className="form-group">
-                  <button className="btn btn-primary btn-block">Sign Up</button>
-                </div>
-              </div>
-            )}
-
-            {this.state.message && (
-              <div className="form-group">
-                <div
-                  className={
-                    this.state.successful
-                      ? "alert alert-success"
-                      : "alert alert-danger"
-                  }
-                  role="alert"
+                <Form
+                  onSubmit={this.handleRegister}
+                  ref={(c) => {
+                    this.form = c;
+                  }}
                 >
-                  {this.state.message}
-                </div>
+                  {!this.state.successful && (
+                    <div>
+                      <div className="form-group">
+                        <label htmlFor="username">Username</label>
+                        <Input
+                          type="text"
+                          className="form-control"
+                          name="username"
+                          value={this.state.username}
+                          onChange={this.onChangeUsername}
+                          validations={[required, vusername]}
+                        />
+                      </div>
+
+                      <div className="form-group">
+                        <label htmlFor="email">Email</label>
+                        <Input
+                          type="text"
+                          className="form-control"
+                          name="email"
+                          value={this.state.email}
+                          onChange={this.onChangeEmail}
+                          validations={[required, email]}
+                        />
+                      </div>
+
+                      <div className="form-group">
+                        <label htmlFor="password">Password</label>
+                        <Input
+                          type="password"
+                          className="form-control"
+                          name="password"
+                          value={this.state.password}
+                          onChange={this.onChangePassword}
+                          validations={[required, vpassword]}
+                        />
+                      </div>
+
+                      <div className="form-group">
+                        <button className="btn btn-primary btn-block">
+                          Sign Up
+                        </button>
+                      </div>
+                    </div>
+                  )}
+
+                  {this.state.message && (
+                    <div className="form-group">
+                      <div
+                        className={
+                          this.state.successful
+                            ? "alert alert-success"
+                            : "alert alert-danger"
+                        }
+                        role="alert"
+                      >
+                        {this.state.message}
+                      </div>
+                    </div>
+                  )}
+                  <CheckButton
+                    style={{ display: "none" }}
+                    ref={(c) => {
+                      this.checkBtn = c;
+                    }}
+                  />
+                </Form>
               </div>
-            )}
-            <CheckButton
-              style={{ display: "none" }}
-              ref={(c) => {
-                this.checkBtn = c;
-              }}
-            />
-          </Form>
-        </div>
+            </div>
+          </div>
+        </body>
+        <footer>ASTA E NICOLAE GUTA REGELE</footer>
       </div>
+      //
+      //   <div className="col-md-12 ">
+      //     <div className="card card-container">
+      //       <img
+      //         src="https://res.protv.ro/assets/protv/2022/10/14/image_galleries/94541/cum-mai-arata-nicolae-guta-acum-si-cati-bani-a-cheltuit-pentru-tatuajul-de-pe-frunte_1_1_1_size19.jpg"
+      //         alt="profile-img"
+      //         className="profile-img-card"
+      //       />
+
+      //       <Form
+      //         onSubmit={this.handleRegister}
+      //         ref={(c) => {
+      //           this.form = c;
+      //         }}
+      //       >
+      //         {!this.state.successful && (
+      //           <div>
+      //             <div className="form-group">
+      //               <label htmlFor="username">Username</label>
+      //               <Input
+      //                 type="text"
+      //                 className="form-control"
+      //                 name="username"
+      //                 value={this.state.username}
+      //                 onChange={this.onChangeUsername}
+      //                 validations={[required, vusername]}
+      //               />
+      //             </div>
+
+      //             <div className="form-group">
+      //               <label htmlFor="email">Email</label>
+      //               <Input
+      //                 type="text"
+      //                 className="form-control"
+      //                 name="email"
+      //                 value={this.state.email}
+      //                 onChange={this.onChangeEmail}
+      //                 validations={[required, email]}
+      //               />
+      //             </div>
+
+      //             <div className="form-group">
+      //               <label htmlFor="password">Password</label>
+      //               <Input
+      //                 type="password"
+      //                 className="form-control"
+      //                 name="password"
+      //                 value={this.state.password}
+      //                 onChange={this.onChangePassword}
+      //                 validations={[required, vpassword]}
+      //               />
+      //             </div>
+
+      //             <div className="form-group">
+      //               <button className="btn btn-primary btn-block">
+      //                 Sign Up
+      //               </button>
+      //             </div>
+      //           </div>
+      //         )}
+
+      //         {this.state.message && (
+      //           <div className="form-group">
+      //             <div
+      //               className={
+      //                 this.state.successful
+      //                   ? "alert alert-success"
+      //                   : "alert alert-danger"
+      //               }
+      //               role="alert"
+      //             >
+      //               {this.state.message}
+      //             </div>
+      //           </div>
+      //         )}
+      //         <CheckButton
+      //           style={{ display: "none" }}
+      //           ref={(c) => {
+      //             this.checkBtn = c;
+      //           }}
+      //         />
+      //       </Form>
+      //     </div>
+      //   </div>
+      // </body>
     );
   }
 }
