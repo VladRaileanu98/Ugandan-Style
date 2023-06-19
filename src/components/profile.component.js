@@ -36,12 +36,6 @@ export default class Profile extends Component {
                 <h3>
                   <strong>{currentUser.username}'s</strong> profile
                 </h3>
-                <a
-                  href="/homepage"
-                  class="bg-emerald-500 hover:bg-emerald-700  text-white font-bold py-2 px-4 border-b-4 border-emerald-700 hover:border-emerald-500 rounded"
-                >
-                  go to homepage
-                </a>
               </div>
               <p>
                 <strong>Token:</strong>{" "}

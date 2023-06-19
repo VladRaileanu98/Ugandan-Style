@@ -101,6 +101,12 @@ class App extends Component {
                       width="40"
                     />
                   </a>
+                  <a
+                    href="/homepage"
+                    class="inline-flex items-center ml-2 px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-500 focus:outline-none focus:border-emerald-700 transition duration-150 ease-in-out"
+                  >
+                    go to homepage
+                  </a>
                   <div class="-mr-2 flex items-center md:hidden">
                     <button
                       type="button"
