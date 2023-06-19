@@ -31,7 +31,7 @@ const Result = ({ showResult, quizs, marks, quizScore, startOver }) => {
 
   return (
     <section
-      className="bg-white text-white"
+      className="bg-gradient-to-r from-gray-500  to-gray-900 text-white"
       style={{ display: `${showResult ? "block" : "none"}` }}
     >
       {" "}
@@ -41,7 +41,9 @@ const Result = ({ showResult, quizs, marks, quizScore, startOver }) => {
           <div className="col-lg-6">
             <div
               className={`text-light text-center p-5 rounded ${
-                marks > (quizs.length * 1) / 2 ? "bg-success" : "bg-danger"
+                marks > (quizs.length * 1) / 2
+                  ? "bg-gradient-to-r from-gray-700  to-gray-900"
+                  : "bg-danger"
               }`}
             >
               <h1 className="mb-2 fw-bold">

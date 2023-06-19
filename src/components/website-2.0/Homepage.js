@@ -109,7 +109,7 @@ function Homepage() {
         <div class="min-h-screen from bg-gradient-to-r from-gray-500  to-gray-900 flex justify-center items-center py-20">
           <div class="container mx-auto p-12 bg-gray-100 rounded-xl">
             <h1 class="text-4xl uppercase font-bold from-current mb-8">
-              Responsive dynamic cards
+              Dynamic course cards
             </h1>
 
             <div class="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 space-y-4 sm:space-y-0">
@@ -127,7 +127,7 @@ function Homepage() {
                             <span>
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                class="h-7 w-7 text-yellow-400"
+                                class="h-7 w-7 text-gray-800"
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 stroke="currentColor"
@@ -147,14 +147,18 @@ function Homepage() {
                               </svg>
                             </span>
                             <h3 class="text-lg text-gray-600 font-semibold mb-2">
-                              New York
+                              Bucharest
                             </h3>
                           </div>
                           <p class="text-sm tracking-normal">
                             {course.description}
                           </p>
-                          <button class="mt-12 w-full text-center bg-yellow-400 py-2 rounded-lg">
-                            Read more
+                          <button class="mt-12 w-full text-center bg-gray-400 py-2 rounded-lg">
+                            {course.quiz != null ? (
+                              <div>data</div>
+                            ) : (
+                              <div>access course</div>
+                            )}
                           </button>
                         </div>
                       </div>
