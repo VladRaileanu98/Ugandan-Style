@@ -32,7 +32,7 @@ export default class Profile extends Component {
         <body className="container bg-white">
           {this.state.userReady ? (
             <div>
-              <div className="jumbotron bg-gradient-to-r from-emerald-200  to-emerald-900">
+              <div className="jumbotron text-center bg-gradient-to-r from-emerald-200  to-emerald-900">
                 <h3>
                   <strong>{currentUser.username}'s</strong> profile
                 </h3>

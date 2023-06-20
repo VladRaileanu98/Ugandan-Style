@@ -135,6 +135,27 @@ class App extends Component {
 
               <div class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
                 <span class="inline-flex">
+                  {/* <div>
+                    <button class="peer px-5 py-2 bg-green-600 hover:bg-green-700 text-white">
+                      Dropdown
+                    </button>
+
+                    <div
+                      class="hidden peer-hover:flex hover:flex
+         w-[200px]
+         flex-col bg-white drop-shadow-lg"
+                    >
+                      <a class="px-5 py-3 hover:bg-gray-200" href="#">
+                        About Us
+                      </a>
+                      <a class="px-5 py-3 hover:bg-gray-200" href="#">
+                        Contact Us
+                      </a>
+                      <a class="px-5 py-3 hover:bg-gray-200" href="#">
+                        Privacy Policy
+                      </a>
+                    </div>
+                  </div> */}
                   <a
                     href="/login"
                     class="inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium bg-white text-black hover:text-blue-500 focus:outline-none transition duration-150 ease-in-out"
