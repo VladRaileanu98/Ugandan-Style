@@ -61,26 +61,26 @@ function Homepage() {
                 <li>
                   <a
                     href="/lessonpage"
-                    class="block py-2 pl-3 pr-4   rounded md:bg-emerald-300 md:text-gray-700 md:p-0 dark:text-white md:dark:text-blue-500"
+                    class="block py-2 pl-3 pr-4   rounded md:bg-gray-300 md:text-gray-700 md:p-0 md:hover:bg-gray-400 dark:text-white md:dark:text-blue-500"
                     aria-current="page"
                   >
-                    Lessons page prototype
+                    lessons
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#"
-                    class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                    href="/user/showAll"
+                    class="block py-2 pl-3 pr-4 text-gray-900 rounded md:bg-lime-300 hover:bg-gray-100 md:hover:bg-lime-400 md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                   >
-                    Page 2
+                    users
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#"
-                    class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                    href="/course/showAll"
+                    class="block py-2 pl-3 pr-4 text-gray-900 rounded md:bg-red-400 hover:bg-gray-100 md:hover:bg-red-500 md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                   >
-                    Page 3
+                    courses
                   </a>
                 </li>
               </ul>
@@ -137,13 +137,16 @@ function Homepage() {
                           <p class="text-sm tracking-normal">
                             {course.description}
                           </p>
-                          <button class="mt-12 w-full text-center bg-gray-400 py-2 rounded-lg">
+                          <a
+                            href={`/course/${course.id}/lessonpage`}
+                            class="text-center block py-2 pl-3 pr-4   rounded md:bg-gray-300 md:text-gray-700 md:p-0 md:hover:bg-gray-400 dark:text-white md:dark:text-blue-500"
+                          >
                             {course.quiz != null ? (
                               <div>data</div>
                             ) : (
                               <div>access course</div>
                             )}
-                          </button>
+                          </a>
                         </div>
                       </div>
                     </div>

@@ -29,12 +29,14 @@ import ListQuizComponent from "./components/trainer/ListQuizComponent";
 import ListQuestionComponent from "./components/trainer/ListQuestionComponent";
 import ListChoiceComponent from "./components/trainer/ListChoiceComponent";
 import AddQuizComponent from "./components/trainer/AddQuizComponent";
+import AddLessonComponent from "./components/trainer/AddLessonComponent";
 import AddQuestionComponent from "./components/trainer/AddQuestionComponent";
 import AddChoiceComponent from "./components/trainer/AddChoiceComponent";
 import UpdateQuizComponent from "./components/trainer/UpdateQuizComponent";
 import UpdateQuestionComponent from "./components/trainer/UpdateQuestionComponent";
 import UpdateChoiceComponent from "./components/trainer/UpdateChoiceComponent";
 import ListCourseQuizzes from "./components/trainer/ListCourseQuizzes";
+import ListCourseLessons from "./components/trainer/ListCourseLessons";
 import ListQuizQuestions from "./components/trainer/ListQuizQuestions";
 import ListQuestionChoices from "./components/trainer/ListQuestionChoices";
 
@@ -261,7 +263,10 @@ class App extends Component {
             {/*WEBSITE 2.0*/}
             <Route path="/loginpage" element={<LoginPage />}></Route>
             <Route path="/homepage" element={<Homepage />}></Route>
-            <Route path="/lessonpage" element={<LessonPage />}></Route>
+            <Route
+              path="/course/:id/lessonpage"
+              element={<LessonPage />}
+            ></Route>
 
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
@@ -286,6 +291,10 @@ class App extends Component {
             <Route
               path="/course/:id/add-quiz"
               element={<AddQuizComponent />}
+            ></Route>
+            <Route
+              path="/course/:id/add-lesson"
+              element={<AddLessonComponent />}
             ></Route>
             <Route
               path="/course/:id/quizzes"
@@ -319,6 +328,10 @@ class App extends Component {
             <Route
               path="/course/:id/quizzes"
               element={<ListCourseQuizzes />}
+            ></Route>
+            <Route
+              path="/course/:id/lessons"
+              element={<ListCourseLessons />}
             ></Route>
             <Route
               path="/quiz/:id/questions"

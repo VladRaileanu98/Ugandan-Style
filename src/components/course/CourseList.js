@@ -54,19 +54,22 @@ const CourseList = () => {
           <table className="min-w-full">
             <thead className="bg-red-300">
               <tr>
-                <th className="text-left font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
+                <th className="text-center font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
                   name
                 </th>
-                <th className="text-left font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
+                <th className="text-center font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
                   description
                 </th>
-                <th className="text-left font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
+                <th className="text-center font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
                   embedLink
                 </th>
-                <th className="text-left font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
-                  no. of quizzes
+                <th className="text-center font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
+                  quiz
                 </th>
-                <th className="text-right font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
+                <th className="text-center font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
+                  lesson
+                </th>
+                <th className="text-center font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
                   actions
                 </th>
               </tr>
