@@ -4,6 +4,7 @@ import CourseService from "../../services/CourseService";
 import Course from "./Course";
 
 const CourseList = () => {
+  const [role, setRole] = useState("");
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [courses, setCourses] = useState(null);
@@ -20,6 +21,8 @@ const CourseList = () => {
       setLoading(false);
     };
     fetchData();
+    setRole(window.localStorage.getItem("role"));
+    console.log(role);
   }, []);
 
   const deleteCourse = (e, id) => {
@@ -53,26 +56,43 @@ const CourseList = () => {
         <div className="flex shadow border-b">
           <table className="min-w-full">
             <thead className="bg-red-300">
-              <tr>
-                <th className="text-center font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
-                  name
-                </th>
-                <th className="text-center font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
-                  description
-                </th>
-                <th className="text-center font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
-                  embedLink
-                </th>
-                <th className="text-center font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
-                  quiz
-                </th>
-                <th className="text-center font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
-                  lesson
-                </th>
-                <th className="text-center font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
-                  actions
-                </th>
-              </tr>
+              {role === "user" ? (
+                <tr>
+                  <th className="text-center font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
+                    name
+                  </th>
+                  <th className="text-center font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
+                    description
+                  </th>
+                  <th className="text-center font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
+                    lesson
+                  </th>
+                  <th className="text-center font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
+                    actions
+                  </th>
+                </tr>
+              ) : (
+                <tr>
+                  <th className="text-center font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
+                    name
+                  </th>
+                  <th className="text-center font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
+                    description
+                  </th>
+                  <th className="text-center font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
+                    embedLink
+                  </th>
+                  <th className="text-center font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
+                    quiz
+                  </th>
+                  <th className="text-center font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
+                    lesson
+                  </th>
+                  <th className="text-center font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
+                    actions
+                  </th>
+                </tr>
+              )}
             </thead>
             {!loading && (
               <tbody className="bg-orange-100">

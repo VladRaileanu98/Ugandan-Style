@@ -30,6 +30,13 @@ class Login extends Component {
       loading: false,
       message: "",
     };
+
+    window.localStorage.setItem(
+      "MY_WELCOME_BANNER",
+      "WELCOME TO THE REAL WORLD (tate academy)!"
+    );
+
+    window.localStorage.setItem("role", "user");
   }
 
   onChangeUsername(e) {

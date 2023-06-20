@@ -4,8 +4,11 @@ import CourseService from "../../services/CourseService";
 import AuthService from "../../services/auth.service";
 function Homepage() {
   const [courses, setCourses] = useState([]);
+
   useEffect(() => {
     getAllCourses();
+    const data = window.localStorage.getItem("MY_WELCOME_BANNER");
+    console.log(data);
   }, []);
 
   const getAllCourses = () => {
@@ -56,17 +59,11 @@ function Homepage() {
                 ></path>
               </svg>
             </button>
-            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+            <div
+              class="mr-20 hidden w-full md:block md:w-auto"
+              id="navbar-default"
+            >
               <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                <li>
-                  <a
-                    href="/lessonpage"
-                    class="block py-2 pl-3 pr-4   rounded md:bg-gray-300 md:text-gray-700 md:p-0 md:hover:bg-gray-400 dark:text-white md:dark:text-blue-500"
-                    aria-current="page"
-                  >
-                    lessons
-                  </a>
-                </li>
                 <li>
                   <a
                     href="/user/showAll"

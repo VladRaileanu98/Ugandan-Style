@@ -26,7 +26,8 @@ export default class Profile extends Component {
     }
 
     const { currentUser } = this.state;
-
+    const data = window.localStorage.setItem("roles", currentUser.roles);
+    console.log(data);
     return (
       <div className="min-h-screen bg-emerald-200">
         <body className="container bg-white">
