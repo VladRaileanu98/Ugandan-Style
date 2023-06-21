@@ -210,7 +210,7 @@ export default class Register extends Component {
             </div>
           </div>
         </body>
-        <footer>ASTA E NICOLAE GUTA REGELE</footer>
+        <footer>content</footer>
       </div>
       //
       //   <div className="col-md-12 ">

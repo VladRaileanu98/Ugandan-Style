@@ -34,26 +34,26 @@ export default class Profile extends Component {
       <div className="min-h-screen bg-emerald-200">
         <body className="container bg-white">
           {this.state.userReady ? (
-            <div>
+            <div className="text-center">
               <div className="jumbotron text-center bg-gradient-to-r from-emerald-200  to-emerald-900">
                 <h3>
                   <strong>{currentUser.username}'s</strong> profile
                 </h3>
               </div>
               <p>
-                <strong>Token:</strong>{" "}
+                <strong>token:</strong>{" "}
                 {currentUser.accessToken.substring(0, 20)} ...{" "}
                 {currentUser.accessToken.substr(
                   currentUser.accessToken.length - 20
                 )}
               </p>
               <p>
-                <strong>Id:</strong> {currentUser.id}
+                <strong>id:</strong> {currentUser.id}
               </p>
               <p>
-                <strong>Email:</strong> {currentUser.email}
+                <strong>email:</strong> {currentUser.email}
               </p>
-              <strong>Authorities:</strong>
+              <strong>permission:</strong>
               <ul>
                 {currentUser.roles &&
                   currentUser.roles.map((role, index) => (
