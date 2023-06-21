@@ -35,9 +35,11 @@ function ListLessonComponent() {
       </Link>
       <table className="table table-bordered table-striped">
         <thead style={{ textAlign: "center" }}>
-          <th> Lesson Id </th>
-          <th> Lesson name</th>
-          <th> Lesson description</th>
+          <th> id </th>
+          <th> name</th>
+          <th> description</th>
+          <th> actions </th>
+          <th> actions </th>
         </thead>
         {lessons?.length ? (
           <tbody>
@@ -46,6 +48,15 @@ function ListLessonComponent() {
                 <td> {lesson.id} </td>
                 <td> {lesson.name} </td>
                 <td> {lesson.description} </td>
+                <td> {lesson.quizId} </td>
+                <td>
+                  <Link
+                    to={`/edit-lesson/${lesson.id}`}
+                    className="btn btn-warning"
+                  >
+                    edit
+                  </Link>
+                </td>
               </tr>
             ))}
           </tbody>

@@ -65,7 +65,7 @@ const ListChoiceComponent = () => {
                 <td>
                   <Link
                     to={`/edit-choice/${choice.id}`}
-                    className="btn btn-alert"
+                    className="btn btn-warning"
                   >
                     Edit choice {choice.id}
                   </Link>

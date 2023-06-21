@@ -53,9 +53,21 @@ function LessonPage() {
                     <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
                       {lesson.description}
                     </p>
-                    <Link to="/quiz/1/take" className="btn btn-warning">
-                      Take quiz
-                    </Link>
+                    {lesson.quizId ? (
+                      <span class="inline-flex">
+                        <a
+                          href={`/quiz/${lesson.quizId}/take`}
+                          class="inline-flex mt-10 items-center px-4 py-2  border border-transparent text-base leading-6 font-medium text-black bg-emerald-400 hover:text-blue-500 focus:outline-none transition duration-150 ease-in-out"
+                        >
+                          Take quiz
+                        </a>
+                      </span>
+                    ) : (
+                      <p class="text-xs mt-10 text-base text-neutral-500 dark:text-neutral-300">
+                        No quiz to display
+                      </p>
+                    )}
+
                     <p class="text-xs text-end text-neutral-500 dark:text-neutral-300">
                       Last updated 3 mins ago
                     </p>

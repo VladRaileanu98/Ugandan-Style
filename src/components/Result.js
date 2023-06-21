@@ -5,28 +5,23 @@ import { Cookies, useCookies } from "react-cookie";
 
 const Result = ({ showResult, quizs, marks, quizScore, startOver }) => {
   const navigate = useNavigate();
-  const [cookies, setCookie, removeCookie] = useCookies([
-    "userId",
-    "email",
-    "role",
-  ]);
 
   const { id } = useParams();
 
   function createGrade() {
-    // axios
-    //   .post(
-    //     "http://localhost:8080/grade/add/" +
-    //       id +
-    //       "/" +
-    //       cookies.userId +
-    //       "/" +
-    //       marks
-    //   )
-    //   .then((response) => {
-    //     console.log(response.data);
-    navigate("/homepage");
-    // });
+    axios
+      .post(
+        "http://localhost:8080/grade/add/" +
+          id +
+          "/" +
+          window.localStorage.getItem("user_id") +
+          "/" +
+          marks
+      )
+      .then((response) => {
+        console.log(response.data);
+        navigate("/homepage");
+      });
   }
 
   return (

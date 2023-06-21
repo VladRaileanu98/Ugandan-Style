@@ -35,6 +35,7 @@ import AddChoiceComponent from "./components/trainer/AddChoiceComponent";
 import UpdateQuizComponent from "./components/trainer/UpdateQuizComponent";
 import UpdateQuestionComponent from "./components/trainer/UpdateQuestionComponent";
 import UpdateChoiceComponent from "./components/trainer/UpdateChoiceComponent";
+import UpdateLessonComponent from "./components/trainer/UpdateLessonComponent";
 import ListCourseQuizzes from "./components/trainer/ListCourseQuizzes";
 import ListCourseLessons from "./components/trainer/ListCourseLessons";
 import ListQuizQuestions from "./components/trainer/ListQuizQuestions";
@@ -303,6 +304,10 @@ class App extends Component {
             <Route
               path="/edit-quiz/:id"
               element={<UpdateQuizComponent />}
+            ></Route>
+            <Route
+              path="/edit-lesson/:id"
+              element={<UpdateLessonComponent />}
             ></Route>
             <Route
               path="/questions"

@@ -43,12 +43,12 @@ function ListQuizComponent() {
         </Link>
         <table className="table table-bordered table-striped">
           <thead style={{ textAlign: "center" }}>
-            <th> Quiz Id </th>
-            <th> Quiz noOfQuestions</th>
-            <th> Quiz timeLimit </th>
-            <th> Quiz deadline</th>
-            <th> Quiz isVisible </th>
-            <th> Test </th>
+            <th> id </th>
+            <th> noOfQuestions</th>
+            <th> timeLimit </th>
+            <th> deadline</th>
+            <th> isVisible </th>
+            <th> test </th>
           </thead>
           {quizzes?.length ? (
             <tbody>
