@@ -46,7 +46,7 @@ const AddLessonComponent = () => {
         setName(response.data.name);
         setDescription(response.data.description);
         setQuizId(response.data.quizId);
-        setVideoLink(response.data.quizId);
+        setVideoLink(response.data.videoLink);
       })
       .catch((error) => {
         console.log(error);

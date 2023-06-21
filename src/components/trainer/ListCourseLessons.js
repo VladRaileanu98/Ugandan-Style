@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import CourseService from "../../services/CourseService";
 
 function ListLessonComponent() {
   const [lessons, setLessons] = useState([]);
   const { id } = useParams();
-
+  const navigate = useNavigate();
   useEffect(() => {
     getAllLessonsByCourseId(id);
   }, [id]);
@@ -30,13 +30,19 @@ function ListLessonComponent() {
           {" "}
           Course No. {id} Lessons{" "}
         </h2>
-        <Link to={`/course/${id}/add-lesson`} className="btn btn-primary">
-          {" "}
-          Add Lesson to course no.{id}
-        </Link>
-        <Link to={`/course/showAll`} className="btn btn-danger">
-          Take me back to course no. {id}
-        </Link>
+        <button
+          onClick={() => navigate(`/course/${id}/add-lesson`)}
+          className="rounded bg-slate-600 text-white px-6 py-2 font-semibold"
+        >
+          add lesson
+        </button>
+
+        <button
+          onClick={() => navigate(`/course/showAll`)}
+          className="rounded bg-slate-400 text-white px-6 py-2 font-semibold"
+        >
+          back to course
+        </button>
         <table className="table table-bordered border-black table-striped bg-white">
           <thead style={{ textAlign: "center" }}>
             <th> id </th>

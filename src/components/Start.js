@@ -3,7 +3,7 @@ import React from "react";
 const Start = ({ startQuiz, showStart }) => {
   return (
     <section
-      className="text-white text-center bg-white"
+      className="text-white text-center bg-gradient-to-r from-gray-500  to-gray-900"
       style={{ display: `${showStart ? "block" : "none"}` }}
     >
       <div className="container">
