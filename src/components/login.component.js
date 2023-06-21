@@ -36,7 +36,7 @@ class Login extends Component {
       "WELCOME TO THE REAL WORLD (tate academy)!"
     );
 
-    window.localStorage.setItem("role", "user");
+    //window.localStorage.setItem("role", "user");
   }
 
   onChangeUsername(e) {

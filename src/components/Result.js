@@ -14,19 +14,19 @@ const Result = ({ showResult, quizs, marks, quizScore, startOver }) => {
   const { id } = useParams();
 
   function createGrade() {
-    axios
-      .post(
-        "http://localhost:8082/grade/add/" +
-          id +
-          "/" +
-          cookies.userId +
-          "/" +
-          marks
-      )
-      .then((response) => {
-        console.log(response.data);
-        navigate("/");
-      });
+    // axios
+    //   .post(
+    //     "http://localhost:8080/grade/add/" +
+    //       id +
+    //       "/" +
+    //       cookies.userId +
+    //       "/" +
+    //       marks
+    //   )
+    //   .then((response) => {
+    //     console.log(response.data);
+    navigate("/homepage");
+    // });
   }
 
   return (

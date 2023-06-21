@@ -2,13 +2,16 @@ import React, { Component, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import CourseService from "../../services/CourseService";
 import AuthService from "../../services/auth.service";
+import axios from "axios";
+import UserService from "../../services/UserService";
 function Homepage() {
   const [courses, setCourses] = useState([]);
+  const [userName, setUserName] = useState("");
 
   useEffect(() => {
-    getAllCourses();
-    const data = window.localStorage.getItem("MY_WELCOME_BANNER");
-    console.log(data);
+    //getAllCourses();
+    getUserCourses();
+    setUserName(window.localStorage.getItem("user_name"));
   }, []);
 
   const getAllCourses = () => {
@@ -22,11 +25,26 @@ function Homepage() {
       });
   };
 
+  const getUserCourses = () => {
+    axios
+      .get(
+        "http://localhost:8080/user/showAllCourses/" +
+          window.localStorage.getItem("user_id")
+      )
+      .then((response) => {
+        setCourses(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div>
       <header>
         <nav class="bg-gray-300 border-gray-200 dark:bg-gray-900">
-          <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
+          <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto ">
             <a href="https://oracle.com/" class="flex items-center">
               {/* <img
                 src="https://flowbite.com/docs/images/logo.svg"
@@ -40,7 +58,7 @@ function Homepage() {
             <button
               data-collapse-toggle="navbar-default"
               type="button"
-              class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              class="inline-flex items-center p-1 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
               aria-controls="navbar-default"
               aria-expanded="false"
             >
@@ -87,10 +105,10 @@ function Homepage() {
       </header>
 
       <body class="bg-lime-200">
-        <div class="min-h-screen from bg-gradient-to-r from-gray-500  to-gray-900 flex justify-center items-center py-20">
-          <div class="container mx-auto p-12 bg-gray-100 rounded-xl">
+        <div class="min-h-screen from bg-gradient-to-r from-gray-500  to-gray-900 flex justify-center items-center py-3">
+          <div class="container p-4 bg-gray-100 rounded-xl">
             <h1 class="text-4xl uppercase font-bold from-current mb-8">
-              Dynamic course cards
+              {userName}'s courses
             </h1>
 
             <div class="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 space-y-4 sm:space-y-0">
@@ -286,28 +304,6 @@ function Homepage() {
             <div class="w-full px-4 lg:w-1/4 md:w-1/2">
               <h2 class="mb-3 text-sm font-medium tracking-widest text-gray-900 uppercase title-font">
                 section 3
-              </h2>
-              <nav class="mb-10 list-none">
-                <li class="mt-3">
-                  <a class="text-gray-500 cursor-pointer hover:text-gray-900">
-                    ~
-                  </a>
-                </li>
-                <li class="mt-3">
-                  <a class="text-gray-500 cursor-pointer hover:text-gray-900">
-                    ~
-                  </a>
-                </li>
-                <li class="mt-3">
-                  <a class="text-gray-500 cursor-pointer hover:text-gray-900">
-                    ~
-                  </a>
-                </li>
-              </nav>
-            </div>
-            <div class="w-full px-4 lg:w-1/4 md:w-1/2">
-              <h2 class="mb-3 text-sm font-medium tracking-widest text-gray-900 uppercase title-font">
-                section 4
               </h2>
               <nav class="mb-10 list-none">
                 <li class="mt-3">

@@ -18,6 +18,9 @@ export default class Profile extends Component {
 
     if (!currentUser) this.setState({ redirect: "/home" });
     this.setState({ currentUser: currentUser, userReady: true });
+    window.localStorage.setItem("role", currentUser.roles);
+    window.localStorage.setItem("user_id", currentUser.id);
+    window.localStorage.setItem("user_name", currentUser.username);
   }
 
   render() {
@@ -26,8 +29,7 @@ export default class Profile extends Component {
     }
 
     const { currentUser } = this.state;
-    const data = window.localStorage.setItem("roles", currentUser.roles);
-    console.log(data);
+
     return (
       <div className="min-h-screen bg-emerald-200">
         <body className="container bg-white">
@@ -57,6 +59,7 @@ export default class Profile extends Component {
                   currentUser.roles.map((role, index) => (
                     <li key={index}>{role}</li>
                   ))}
+                <script>console.log(":ceadwawd");</script>
               </ul>
             </div>
           ) : null}

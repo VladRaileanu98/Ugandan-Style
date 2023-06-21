@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import CourseService from "../../services/CourseService";
+import UserService from "../../services/UserService";
+import axios from "axios";
 
 const Course = ({ course, deleteCourse }) => {
   const [role, setRole] = useState("");
@@ -7,13 +10,25 @@ const Course = ({ course, deleteCourse }) => {
   useEffect(() => {
     const data = window.localStorage.getItem("role");
     setRole(data);
-    console.log(role);
+    console.log(data);
   }, []);
 
   const navigate = useNavigate();
   const editCourse = (e, id) => {
     e.preventDefault();
     navigate(`/course/update/${id}`);
+  };
+
+  const addUserToCourse = (e, id) => {
+    e.preventDefault();
+    axios.put(
+      "http://localhost:8080/user/add-course/" +
+        id +
+        "/" +
+        window.localStorage.getItem("user_id")
+    );
+    alert("successfull enrollment to " + course.name);
+    navigate(`/homepage`);
   };
 
   const addQuizToCourse = (e, id) => {
@@ -28,7 +43,7 @@ const Course = ({ course, deleteCourse }) => {
     console.log("this is the course id:" + id);
   };
 
-  if (role === "user") {
+  if (role === "ROLE_USER") {
     return (
       <tr key={course.id}>
         <td className="text-center px-6 py-4 whitespace-nowrap">
@@ -36,16 +51,21 @@ const Course = ({ course, deleteCourse }) => {
         </td>
         <td className="text-center px-6 py-4 whitespace-nowrap">
           <div className="text-sm text-gray-500">
-            {course.description.substring(0, 9) + ".."}
+            {course.description.substring(0, 20) + ".."}
           </div>
         </td>
-        <td className="text-center md:hover:bg-orange-200 hover:cursor-pointer px-6 py-4 whitespace-nowrap">
+        <td className="text-center  px-6 py-4 whitespace-nowrap">
           <div className="text-sm text-gray-500">
             {course.lessonList.length}
           </div>
         </td>
         <td className="text-center py-4 whitespace-nowrap font-medium text-sm">
-          nothing
+          <a
+            onClick={(e, id) => addUserToCourse(e, course.id)}
+            className="text-white hover:text-indigo-800 px-4 hover:cursor-pointer font-semibold rounded border bg-slate-600"
+          >
+            enroll
+          </a>
         </td>
       </tr>
     );

@@ -39,24 +39,28 @@ const CourseList = () => {
   return (
     <body className="min-h-screen bg-emerald-200">
       <div className="container mx-auto my-50 ">
-        <div className="h-12">
-          <button
-            onClick={() => navigate("/course/add")}
-            className="rounded bg-slate-600 text-white px-6 py-2 font-semibold"
-          >
-            add course
-          </button>
-          <button
-            onClick={() => navigate("/user/showAll")}
-            className="rounded bg-slate-400 text-white px-6 py-2 font-semibold"
-          >
-            go to users page
-          </button>
-        </div>
+        {role === "ROLE_USER" ? (
+          <div className="h-12"></div>
+        ) : (
+          <div className="h-12">
+            <button
+              onClick={() => navigate("/course/add")}
+              className="rounded bg-slate-600 text-white px-6 py-2 font-semibold"
+            >
+              add course
+            </button>
+            <button
+              onClick={() => navigate("/user/showAll")}
+              className="rounded bg-slate-400 text-white px-6 py-2 font-semibold"
+            >
+              go to users page
+            </button>
+          </div>
+        )}
         <div className="flex shadow border-b">
           <table className="min-w-full">
             <thead className="bg-red-300">
-              {role === "user" ? (
+              {role === "ROLE_USER" ? (
                 <tr>
                   <th className="text-center font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
                     name
@@ -65,7 +69,7 @@ const CourseList = () => {
                     description
                   </th>
                   <th className="text-center font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
-                    lesson
+                    lessons
                   </th>
                   <th className="text-center font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
                     actions

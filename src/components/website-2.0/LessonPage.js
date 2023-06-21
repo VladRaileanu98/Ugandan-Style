@@ -53,6 +53,9 @@ function LessonPage() {
                     <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
                       {lesson.description}
                     </p>
+                    <Link to="/quiz/1/take" className="btn btn-warning">
+                      Take quiz
+                    </Link>
                     <p class="text-xs text-end text-neutral-500 dark:text-neutral-300">
                       Last updated 3 mins ago
                     </p>
