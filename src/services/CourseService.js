@@ -3,11 +3,11 @@ import axios from "axios";
 const USER_API_BASE_URL = "http://localhost:8080/course";
 
 class CourseService {
-  saveCourse(name, description, embedLink) {
+  saveCourse(name, description, imageLink) {
     return axios.post(USER_API_BASE_URL + "/create", {
       name,
       description,
-      embedLink,
+      imageLink,
     });
   }
 

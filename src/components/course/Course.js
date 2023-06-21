@@ -82,7 +82,7 @@ const Course = ({ course, deleteCourse }) => {
         </td>
         <td className="text-center px-6 py-4 whitespace-nowrap">
           <div className="text-sm text-gray-500">
-            {course.embedLink.substring(0, 9) + ".."}
+            {course.imageLink.substring(0, 9) + ".."}
           </div>
         </td>
         <td

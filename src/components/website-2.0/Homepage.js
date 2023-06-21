@@ -107,17 +107,16 @@ function Homepage() {
       <body class="bg-lime-200">
         <div class="min-h-screen from bg-gradient-to-r from-gray-500  to-gray-900 flex justify-center items-center py-3">
           <div class="container p-4 bg-gray-100 rounded-xl">
-            <h1 class="text-4xl uppercase font-bold from-current mb-8">
+            <h1 class="text-4xl uppercase text-center font-bold from-current mb-8">
               {userName}'s courses
             </h1>
-
             <div class="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 space-y-4 sm:space-y-0">
               {courses.map((course) => (
                 <div class="bg-white">
                   <div>
                     <div class="shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105">
                       <div>
-                        <img class="w-full" src={course.embedLink} />
+                        <img class="w-full" src={course.imageLink} />
                         <div class="px-4 py-2">
                           <h1 class="text-xl font-gray-700 font-bold">
                             {course.name}

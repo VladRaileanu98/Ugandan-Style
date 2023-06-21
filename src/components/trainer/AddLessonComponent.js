@@ -6,6 +6,7 @@ import axios from "axios";
 const AddLessonComponent = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
+  const [videoLink, setVideoLink] = useState("");
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -75,6 +76,21 @@ const AddLessonComponent = () => {
                     className="form-control"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
+                  ></input>
+                </div>
+
+                <div className="form-group mb-2">
+                  <label className="form-label">
+                    {" "}
+                    Lesson embeded video link:{" "}
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Enter lesson video link"
+                    name="videoLink"
+                    className="form-control"
+                    value={videoLink}
+                    onChange={(e) => setVideoLink(e.target.value)}
                   ></input>
                 </div>
 

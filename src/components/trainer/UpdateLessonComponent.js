@@ -5,6 +5,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 const AddLessonComponent = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
+  const [videoLink, setVideoLink] = useState("");
   const [quizId, setQuizId] = useState(false);
   const [courseId, setCourseId] = useState("");
 
@@ -13,7 +14,7 @@ const AddLessonComponent = () => {
 
   const saveOrUpdateLesson = (e) => {
     e.preventDefault();
-    const lessonEntity = { name, description, quizId };
+    const lessonEntity = { name, description, quizId, videoLink };
 
     LessonService.updateLesson(id, lessonEntity)
       .then((response) => {
@@ -45,6 +46,7 @@ const AddLessonComponent = () => {
         setName(response.data.name);
         setDescription(response.data.description);
         setQuizId(response.data.quizId);
+        setVideoLink(response.data.quizId);
       })
       .catch((error) => {
         console.log(error);
@@ -84,6 +86,21 @@ const AddLessonComponent = () => {
                     className="form-control"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
+                  ></input>
+                </div>
+
+                <div className="form-group mb-2">
+                  <label className="form-label">
+                    {" "}
+                    Lesson embeded video link:{" "}
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Enter lesson video link"
+                    name="videoLink"
+                    className="form-control"
+                    value={videoLink}
+                    onChange={(e) => setVideoLink(e.target.value)}
                   ></input>
                 </div>
 

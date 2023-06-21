@@ -128,7 +128,7 @@ export default class Register extends Component {
             <div className="col-md-12 ">
               <div className="card card-container">
                 <img
-                  src="https://res.protv.ro/assets/protv/2022/10/14/image_galleries/94541/cum-mai-arata-nicolae-guta-acum-si-cati-bani-a-cheltuit-pentru-tatuajul-de-pe-frunte_1_1_1_size19.jpg"
+                  src="https://cdn.onlinewebfonts.com/svg/img_569204.png"
                   alt="profile-img"
                   className="profile-img-card"
                 />

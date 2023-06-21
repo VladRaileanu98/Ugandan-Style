@@ -38,7 +38,8 @@ function ListLessonComponent() {
           <th> id </th>
           <th> name</th>
           <th> description</th>
-          <th> actions </th>
+          <th> quiz </th>
+          <th> video </th>
           <th> actions </th>
         </thead>
         {lessons?.length ? (
@@ -49,6 +50,7 @@ function ListLessonComponent() {
                 <td> {lesson.name} </td>
                 <td> {lesson.description} </td>
                 <td> {lesson.quizId} </td>
+                <td> {lesson.videoLink} </td>
                 <td>
                   <Link
                     to={`/edit-lesson/${lesson.id}`}

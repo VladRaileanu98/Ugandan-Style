@@ -1,16 +1,29 @@
 import React, { useEffect, useState } from "react";
 import LessonService from "../../services/LessonService";
 import axios from "axios";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useLocation, useNavigate } from "react-router-dom";
 import ScrollSpy from "react-ui-scrollspy";
 
 function LessonPage() {
   const [lessons, setLessons] = useState([]);
   const { id } = useParams();
+  const navigate = useNavigate();
+
+  const location = useLocation();
 
   useEffect(() => {
     getAllLessonsByCourseId(id);
   }, [id]);
+
+  function embedVideo(e, link, description) {
+    alert("You clicked me!");
+    navigate(`/embedded/video`, {
+      state: {
+        videoLink: link,
+        lessonDescription: description,
+      },
+    });
+  }
 
   const getAllLessonsByCourseId = () => {
     axios
@@ -65,6 +78,22 @@ function LessonPage() {
                     ) : (
                       <p class="text-xs mt-10 text-base text-neutral-500 dark:text-neutral-300">
                         No quiz to display
+                      </p>
+                    )}
+                    {lesson.videoLink ? (
+                      <span class="inline-flex">
+                        <a
+                          onClick={(e, link, description) =>
+                            embedVideo(e, lesson.videoLink, lesson.description)
+                          }
+                          class="inline-flex mt-10 items-center px-4 py-2  border border-transparent text-base leading-6 font-medium text-black bg-emerald-400 hover:text-blue-500 focus:outline-none transition duration-150 ease-in-out"
+                        >
+                          access course video
+                        </a>
+                      </span>
+                    ) : (
+                      <p class="text-xs mt-2 -mb-5 text-base text-neutral-500 dark:text-neutral-300">
+                        No embedded video
                       </p>
                     )}
 

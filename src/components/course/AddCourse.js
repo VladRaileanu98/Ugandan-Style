@@ -7,7 +7,7 @@ const AddCourse = () => {
     id: "",
     name: "",
     description: "",
-    embedLink: "",
+    imageLink: "",
   });
 
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ const AddCourse = () => {
       id: "",
       name: "",
       description: "",
-      embedLink: "",
+      imageLink: "",
     });
   };
 
@@ -71,12 +71,12 @@ const AddCourse = () => {
         </div>
         <div className="items-center justify-center h-14 w-full my-4">
           <label className="block text-gray-600 text-sm font-normal">
-            embed link
+            image link
           </label>
           <input
             type="text"
-            name="embedLink"
-            value={course.embedLink}
+            name="imageLink"
+            value={course.imageLink}
             onChange={(e) => handleChange(e)}
             className="h-10 w-96 border mt-2 px-2 py-2"
           ></input>

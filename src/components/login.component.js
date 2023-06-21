@@ -96,7 +96,7 @@ class Login extends Component {
             <div className="col-md-12">
               <div className="card card-container">
                 <img
-                  src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+                  src="https://pixlok.com/wp-content/uploads/2021/10/User-Profile-Icon-9mces.png"
                   alt="profile-img"
                   className="profile-img-card"
                 />

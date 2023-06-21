@@ -84,7 +84,7 @@ const CourseList = () => {
                     description
                   </th>
                   <th className="text-center font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
-                    embedLink
+                    imageLink
                   </th>
                   <th className="text-center font-medium text-gray-700 uppercase tracking-wider py-3 px-6">
                     quiz
