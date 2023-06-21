@@ -37,9 +37,9 @@ const UserList = () => {
     return <h1>access denied</h1>;
   else
     return (
-      <body className="min-h-screen bg-emerald-200">
+      <body className="min-h-screen bg-gradient-to-r from-gray-500  to-gray-900">
         <div className="container content-center mx-auto">
-          <div className="h-12">
+          <div className="h-12 py-2">
             <button
               onClick={() => navigate("/course/showAll")}
               className="rounded bg-slate-400 text-white px-6 py-2 font-semibold"

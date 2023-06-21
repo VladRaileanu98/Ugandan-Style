@@ -31,11 +31,11 @@ export default class Profile extends Component {
     const { currentUser } = this.state;
 
     return (
-      <div className="min-h-screen bg-emerald-200">
-        <body className="container bg-white">
+      <div className="min-h-screen bg-gradient-to-r from-gray-500  to-gray-900">
+        <body className="container bg-white rounded-xl">
           {this.state.userReady ? (
             <div className="text-center">
-              <div className="jumbotron text-center bg-gradient-to-r from-emerald-200  to-emerald-900">
+              <div className="jumbotron text-center bg-gradient-to-r from-sky-200  to-sky-900">
                 <h3>
                   <strong>{currentUser.username}'s</strong> profile
                 </h3>
@@ -54,7 +54,7 @@ export default class Profile extends Component {
                 <strong>email:</strong> {currentUser.email}
               </p>
               <strong>permission:</strong>
-              <ul>
+              <ul className="py-3">
                 {currentUser.roles &&
                   currentUser.roles.map((role, index) => (
                     <li key={index}>{role}</li>

@@ -32,7 +32,7 @@ function ListQuizComponent() {
   };
 
   return (
-    <div className="container">
+    <div className="container bg-gradient-to-r from-gray-500  to-gray-900">
       <h2 className="text-center"> List Quizzes </h2>
       <Link to="/course/1/add-quiz" className="btn btn-primary">
         {" "}

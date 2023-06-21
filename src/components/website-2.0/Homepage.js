@@ -43,7 +43,7 @@ function Homepage() {
   return (
     <div>
       <header>
-        <nav class="bg-gray-300 border-gray-200 dark:bg-gray-900">
+        <nav class="bg-zinc-300 border-zinc-200 dark:bg-zinc-900">
           <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto ">
             <a href="https://oracle.com/" class="flex items-center">
               {/* <img
@@ -51,49 +51,32 @@ function Homepage() {
                 class="h-8 mr-3"
                 alt="Flowbite Logo"
               /> */}
-              <span class="text-gray-900 pl-11 ml-5 self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                Oracle
+              <span class="text-zinc-900 pl-11 ml-5 self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+                Uganda
               </span>
             </a>
-            <button
-              data-collapse-toggle="navbar-default"
-              type="button"
-              class="inline-flex items-center p-1 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-              aria-controls="navbar-default"
-              aria-expanded="false"
-            >
-              <span class="sr-only">Open main menu</span>
-              <svg
-                class="w-6 h-6"
-                aria-hidden="true"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </button>
             <div
               class="mr-20 hidden w-full md:block md:w-auto"
               id="navbar-default"
             >
-              <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                <li>
-                  <a
-                    href="/user/showAll"
-                    class="block py-2 pl-3 pr-4 text-gray-900 rounded md:bg-lime-300 hover:bg-gray-100 md:hover:bg-lime-400 md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                  >
-                    users
-                  </a>
-                </li>
+              <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-zinc-800 md:dark:bg-zinc-900 dark:border-zinc-700">
+                {window.localStorage.getItem("role") === "ROLE_USER" ? (
+                  <></>
+                ) : (
+                  <li>
+                    <a
+                      href="/user/showAll"
+                      class="block py-2 pl-3 pr-4 text-zinc-900 rounded md:bg-emerald-300 hover:bg-gray-100 md:hover:bg-emerald-400 md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-zinc-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                    >
+                      users
+                    </a>
+                  </li>
+                )}
+
                 <li>
                   <a
                     href="/course/showAll"
-                    class="block py-2 pl-3 pr-4 text-gray-900 rounded md:bg-red-400 hover:bg-gray-100 md:hover:bg-red-500 md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                    class="block py-2 pl-3 pr-4 text-zinc-900 rounded md:bg-emerald-400 hover:bg-gray-100 md:hover:bg-emerald-500 md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-zinc-700 dark:hover:text-white md:dark:hover:bg-transparent"
                   >
                     courses
                   </a>
@@ -173,7 +156,7 @@ function Homepage() {
       </body>
 
       <footer class="w-full text-gray-700 bg-gray-100 body-font">
-        <div class="container flex flex-col flex-wrap px-5 py-24 mx-auto md:items-center lg:items-start md:flex-row md:flex-no-wrap">
+        <div class="container flex flex-col flex-wrap px-1 py-5 mx-auto md:items-center lg:items-start md:flex-row md:flex-no-wrap">
           <div class="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left">
             <a class="flex items-center justify-center font-medium text-gray-900 title-font md:justify-start">
               <svg
@@ -325,8 +308,8 @@ function Homepage() {
           </div>
         </div>
         <div class="bg-gray-300">
-          <div class="container px-5 py-4 mx-auto">
-            <p class="text-sm text-gray-700 capitalize xl:text-center">
+          <div class="container px-5 py-1 mx-auto">
+            <p class="text-sm text-gray-700 capitalize xl:text-end">
               © 2023 All rights reserved{" "}
             </p>
           </div>

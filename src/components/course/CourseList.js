@@ -37,12 +37,12 @@ const CourseList = () => {
   };
 
   return (
-    <body className="min-h-screen bg-emerald-200">
+    <body className="min-h-screen bg-gradient-to-r from-gray-500  to-gray-900">
       <div className="container mx-auto my-50 ">
         {role === "ROLE_USER" ? (
           <div className="h-12"></div>
         ) : (
-          <div className="h-12">
+          <div className="h-12 py-2">
             <button
               onClick={() => navigate("/course/add")}
               className="rounded bg-slate-600 text-white px-6 py-2 font-semibold"
