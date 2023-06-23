@@ -12,7 +12,7 @@ const AddLessonComponent = () => {
 
   const saveOrUpdateLesson = (e) => {
     e.preventDefault();
-    const lessonEntity = { name, description };
+    const lessonEntity = { name, description, videoLink };
 
     LessonService.createLesson(lessonEntity)
       .then((response) => {

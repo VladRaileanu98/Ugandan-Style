@@ -8,9 +8,8 @@ const EmbeddedVideo = () => {
 
   return (
     <div class="min-h-screen from bg-gradient-to-r from-gray-500  to-gray-900 ">
-      >
       <div class="container p-4 flex flex-col px-5 py-24 mx-auto md:items-center bg-gray-100 rounded-xl ">
-        <h1>{location.state.lessonDescription}</h1>
+        <h1>{location.state.lessonName}</h1>
         <div className="ratio ratio-16x9">
           <iframe
             width="640"

@@ -76,7 +76,7 @@ const ListChoiceComponent = () => {
                       to={`/edit-choice/${choice.id}`}
                       className="btn btn-warning"
                     >
-                      Edit choice {choice.id}
+                      Edit choice
                     </Link>
                   </td>
                 </tr>

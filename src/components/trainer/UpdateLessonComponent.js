@@ -78,7 +78,7 @@ const AddLessonComponent = () => {
                 </div>
 
                 <div className="form-group mb-2">
-                  <label className="form-label"> Quiz deadline: </label>
+                  <label className="form-label"> Lesson description: </label>
                   <input
                     type="text"
                     placeholder="Enter lesson description"

@@ -15,12 +15,13 @@ function LessonPage() {
     getAllLessonsByCourseId(id);
   }, [id]);
 
-  function embedVideo(e, link, description) {
+  function embedVideo(e, link, description, name) {
     alert("You clicked me!");
     navigate(`/embedded/video`, {
       state: {
         videoLink: link,
         lessonDescription: description,
+        lessonName: name,
       },
     });
   }
@@ -51,7 +52,7 @@ function LessonPage() {
   return (
     <div className="bg-gradient-to-r from-gray-500  to-gray-900">
       <header className="container text-center text-white text-lg bg-gradient-to-r from-gray-800  to-gray-500">
-        cursul de matematica
+        lectiile cursului
       </header>
       <body>
         <div className="min-h-screen from bg-gradient-to-r from-gray-500  to-gray-900">
@@ -83,8 +84,13 @@ function LessonPage() {
                     {lesson.videoLink ? (
                       <span class="inline-flex">
                         <a
-                          onClick={(e, link, description) =>
-                            embedVideo(e, lesson.videoLink, lesson.description)
+                          onClick={(e, link, description, name) =>
+                            embedVideo(
+                              e,
+                              lesson.videoLink,
+                              lesson.description,
+                              lesson.name
+                            )
                           }
                           class="inline-flex mt-10 items-center px-4 py-2  border border-transparent text-base leading-6 font-medium text-black bg-emerald-400 hover:text-blue-500 focus:outline-none transition duration-150 ease-in-out"
                         >
