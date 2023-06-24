@@ -64,23 +64,10 @@ function LessonPage() {
                     <h5 class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
                       {lesson.name}
                     </h5>
-                    <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+                    <p class=" text-base text-neutral-600 dark:text-neutral-200">
                       {lesson.description}
                     </p>
-                    {lesson.quizId ? (
-                      <span class="inline-flex">
-                        <a
-                          href={`/quiz/${lesson.quizId}/take`}
-                          class="inline-flex mt-10 items-center px-4 py-2  border border-transparent text-base leading-6 font-medium text-black bg-emerald-400 hover:text-blue-500 focus:outline-none transition duration-150 ease-in-out"
-                        >
-                          Take quiz
-                        </a>
-                      </span>
-                    ) : (
-                      <p class="text-xs mt-10 text-base text-neutral-500 dark:text-neutral-300">
-                        No quiz to display
-                      </p>
-                    )}
+
                     {lesson.videoLink ? (
                       <span class="inline-flex">
                         <a
@@ -92,7 +79,7 @@ function LessonPage() {
                               lesson.name
                             )
                           }
-                          class="inline-flex mt-10 items-center px-4 py-2  border border-transparent text-base leading-6 font-medium text-black bg-emerald-400 hover:text-blue-500 focus:outline-none transition duration-150 ease-in-out"
+                          class="inline-flex mt-5 rounded items-center px-4 py-2  border border-transparent text-base leading-6 font-medium text-black bg-emerald-400 hover:text-blue-500 focus:outline-none transition duration-150 ease-in-out"
                         >
                           access course video
                         </a>
@@ -102,9 +89,23 @@ function LessonPage() {
                         No embedded video
                       </p>
                     )}
+                    {lesson.quizId ? (
+                      <span class="inline-flex">
+                        <a
+                          href={`/quiz/${lesson.quizId}/take`}
+                          class="inline-flex mt-3 rounded -mb-7 items-center px-4 py-2  border border-transparent text-base leading-6 font-medium text-black bg-amber-300 hover:text-blue-500 focus:outline-none transition duration-150 ease-in-out"
+                        >
+                          Take quiz
+                        </a>
+                      </span>
+                    ) : (
+                      <p class="text-xs mt-3 -mb-5 text-base text-neutral-500 dark:text-neutral-300">
+                        No quiz to display
+                      </p>
+                    )}
 
                     <p class="text-xs text-end text-neutral-500 dark:text-neutral-300">
-                      Last updated 3 mins ago
+                      @Copyright 2023
                     </p>
                   </div>
                 </div>

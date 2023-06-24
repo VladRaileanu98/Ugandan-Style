@@ -40,7 +40,7 @@ const CourseList = () => {
     <body className="min-h-screen bg-gradient-to-r from-gray-500  to-gray-900">
       <div className="container mx-auto my-50 ">
         {role === "ROLE_USER" ? (
-          <div className="h-12"></div>
+          <div className="h-12 py-12"></div>
         ) : (
           <div className="h-12 py-2">
             <button

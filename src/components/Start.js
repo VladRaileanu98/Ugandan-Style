@@ -13,7 +13,7 @@ const Start = ({ startQuiz, showStart }) => {
               className="card p-4"
               style={{ background: "#E8E8E8", borderColor: "#646464" }}
             >
-              <h1 className="fw-bold mb-4">Quiz Form</h1>
+              <h1 className="fw-bold mb-4">Javascript Basics Quiz</h1>
               <button
                 onClick={startQuiz}
                 className="btn px-4 py-2 bg-dark text-light fw-bold"

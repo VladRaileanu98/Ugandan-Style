@@ -39,7 +39,7 @@ const Quiz = ({
                 {question?.choiceList?.map((data, index) => (
                   <button
                     key={index}
-                    className={`option w-100 text-start btn text-white py-2 px-3 mt-3 rounded btn-dark ${
+                    className={`option w-100 text-start btn text-white py-2 px-3 mt-3 rounded btn-secondary ${
                       correctAnswer === data.answer && "bg-success"
                     }`}
                     onClick={(event) => checkAnswer(event, data)}
@@ -50,7 +50,7 @@ const Quiz = ({
               </div>
               {questionIndex + 1 !== quizs.length ? (
                 <button
-                  className="btn py-2 w-100 mt-3 bg-primary text-light fw-bold"
+                  className="btn py-2 w-100 mt-3 bg-dark text-light fw-bold"
                   onClick={nextQuestion}
                   disabled={!selectedAnswer}
                 >

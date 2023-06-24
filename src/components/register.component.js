@@ -124,7 +124,7 @@ export default class Register extends Component {
     return (
       <div>
         <body class="bg-lime-200">
-          <div class="min-h-screen from bg-gradient-to-r from-gray-500  to-gray-900 flex justify-center items-center py-20">
+          <div class="min-h-screen from bg-gradient-to-r from-gray-500  to-gray-900 flex justify-center items-center py-1">
             <div className="col-md-12 ">
               <div className="card card-container">
                 <img

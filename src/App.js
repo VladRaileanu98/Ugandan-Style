@@ -99,7 +99,7 @@ class App extends Component {
                 <div class="flex items-center justify-between w-full md:w-auto">
                   <a href="" aria-label="Home">
                     <img
-                      src="https://static.vecteezy.com/system/resources/previews/008/440/451/original/farm-animal-livestock-circle-badge-logo-free-vector.jpg"
+                      src="https://upb.ro/wp-content/uploads/2020/06/logo-oficial-enupb.jpg"
                       height="40"
                       width="40"
                     />

@@ -35,18 +35,11 @@ export default class Profile extends Component {
         <body className="container bg-white rounded-xl">
           {this.state.userReady ? (
             <div className="text-center">
-              <div className="jumbotron text-center bg-gradient-to-r from-sky-200  to-sky-900">
+              <div className="jumbotron text-center text-white bg-gradient-to-r from-gray-300  to-gray-700">
                 <h3>
                   <strong>{currentUser.username}'s</strong> profile
                 </h3>
               </div>
-              <p>
-                <strong>token:</strong>{" "}
-                {currentUser.accessToken.substring(0, 20)} ...{" "}
-                {currentUser.accessToken.substr(
-                  currentUser.accessToken.length - 20
-                )}
-              </p>
               <p>
                 <strong>id:</strong> {currentUser.id}
               </p>
@@ -61,6 +54,13 @@ export default class Profile extends Component {
                   ))}
                 <script>console.log(":ceadwawd");</script>
               </ul>
+              <p>
+                <strong>jwt:</strong> {currentUser.accessToken.substring(0, 20)}{" "}
+                ...{" "}
+                {currentUser.accessToken.substr(
+                  currentUser.accessToken.length - 20
+                )}
+              </p>
             </div>
           ) : null}
         </body>

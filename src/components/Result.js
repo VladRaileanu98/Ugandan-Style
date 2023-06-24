@@ -35,14 +35,16 @@ const Result = ({ showResult, quizs, marks, quizScore, startOver }) => {
         <div className="row vh-100 align-items-center justify-content-center">
           <div className="col-lg-6">
             <div
-              className={`text-light text-center p-5 rounded ${
+              className={`text-dark text-center p-5 rounded ${
                 marks > (quizs.length * 1) / 2
-                  ? "bg-gradient-to-r from-gray-700  to-gray-900"
+                  ? "bg-gradient-to-r from-gray-100  to-gray-200"
                   : "bg-danger"
               }`}
             >
               <h1 className="mb-2 fw-bold">
-                {marks > (quizs.length * 1) / 2 ? "Good job!" : "Try again!"}
+                {marks > (quizs.length * 1) / 2
+                  ? "Congratulations!"
+                  : "Try again!"}
               </h1>
               <h3 className="mb-3 fw-bold">
                 Your score is {marks} out of {quizScore}
@@ -50,13 +52,13 @@ const Result = ({ showResult, quizs, marks, quizScore, startOver }) => {
 
               <button
                 onClick={startOver}
-                className="btn py-2 px-4 btn-light fw-bold d-inline"
+                className="btn py-2 px-4 btn-dark fw-bold d-inline"
               >
                 Start Over
               </button>
               <button
                 onClick={createGrade}
-                className="btn py-2 px-4 btn-light fw-bold d-inline"
+                className="btn py-2 ml-2 px-4 btn-dark fw-bold d-inline"
               >
                 Complete
               </button>
