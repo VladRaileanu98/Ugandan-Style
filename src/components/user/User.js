@@ -37,7 +37,7 @@ const User = ({ user, deleteUser }) => {
       setLoading(false);
     };
     fetchData();
-  });
+  }, []);
 
   const items = courses?.map((course) => {
     return { id: course.id, name: course.name };

@@ -45,6 +45,7 @@ import ListQuestionChoices from "./components/trainer/ListQuestionChoices";
 import Homepage from "./components/website-2.0/Homepage";
 import LoginPage from "./components/website-2.0/LoginPage";
 import LessonPage from "./components/website-2.0/LessonPage";
+import SendMessageComponent from "./components/trainer/SendMessageComponent";
 
 class App extends Component {
   constructor(props) {
@@ -181,7 +182,8 @@ class App extends Component {
             <Route path="/user/update/:id" element={<UpdateUser />} />
             <Route path="/course/update/:id" element={<UpdateCourse />} />
             <Route path="/user/:id/course/:id" element={<UserCoursePage />} />
-            <Route path="/embedded/video" element={<EmbeddedVideo />} />
+            {/* <Route path="/embedded/video" element={<EmbeddedVideo />} /> */}
+            <Route path="/embedded/video" element={<SendMessageComponent />} />
             {/* quiz forms */}
             <Route path="/quizzes" element={<ListQuizComponent />}></Route>
             <Route

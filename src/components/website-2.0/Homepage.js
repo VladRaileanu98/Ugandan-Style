@@ -227,9 +227,9 @@ function Homepage() {
       <footer class="w-full text-gray-700 bg-gray-300 body-font">
         <div class="container flex flex-col flex-wrap px-1 py-2 mx-auto md:items-center lg:items-start md:flex-row md:flex-no-wrap">
           <div class="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left">
-            <p class="mt-14 text-sm text-gray-500">tailwind css</p>
+            <p class="mt-14 text-sm text-gray-500">follow on:</p>
             <div class="mt-4">
-              <span class="inline-flex justify-center mt-2 sm:ml-auto sm:mt-0 sm:justify-start">
+              <span class="inline-flex justify-center  sm:ml-auto sm:mt-0 sm:justify-start">
                 <a class="text-gray-900 cursor-pointer hover:text-gray-700">
                   <svg
                     fill="currentColor"
@@ -298,66 +298,67 @@ function Homepage() {
           <div class="flex flex-wrap flex-grow mt-10 -mb-10 text-center md:pl-20 md:mt-0 md:text-left">
             <div class="w-full px-4 lg:w-1/4 md:w-1/2">
               <h2 class="mb-3 text-sm font-medium tracking-widest text-gray-900 uppercase title-font">
-                section 1
+                CONTACT
               </h2>
+
               <nav class="mb-10 list-none">
                 <li class="mt-3">
                   <a class="text-gray-500 cursor-pointer hover:text-gray-900">
-                    ~
+                    Email
                   </a>
                 </li>
                 <li class="mt-3">
                   <a class="text-gray-500 cursor-pointer hover:text-gray-900">
-                    ~
+                    Phone no.
                   </a>
                 </li>
                 <li class="mt-3">
                   <a class="text-gray-500 cursor-pointer hover:text-gray-900">
-                    ~
+                    Forum
                   </a>
                 </li>
               </nav>
             </div>
             <div class="w-full px-4 lg:w-1/4 md:w-1/2">
               <h2 class="mb-3 text-sm font-medium tracking-widest text-gray-900 uppercase title-font">
-                section 2
+                ABOUT
               </h2>
               <nav class="mb-10 list-none">
                 <li class="mt-3">
                   <a class="text-gray-500 cursor-pointer hover:text-gray-900">
-                    ~
+                    News
                   </a>
                 </li>
                 <li class="mt-3">
                   <a class="text-gray-500 cursor-pointer hover:text-gray-900">
-                    ~
+                    Business
                   </a>
                 </li>
                 <li class="mt-3">
                   <a class="text-gray-500 cursor-pointer hover:text-gray-900">
-                    ~
+                    Featured
                   </a>
                 </li>
               </nav>
             </div>
             <div class="w-full px-4 lg:w-1/4 md:w-1/2">
               <h2 class="mb-3 text-sm font-medium tracking-widest text-gray-900 uppercase title-font">
-                section 3
+                RESOURCES
               </h2>
               <nav class="mb-10 list-none">
                 <li class="mt-3">
                   <a class="text-gray-500 cursor-pointer hover:text-gray-900">
-                    ~
+                    Application
                   </a>
                 </li>
                 <li class="mt-3">
                   <a class="text-gray-500 cursor-pointer hover:text-gray-900">
-                    ~
+                    Documentation
                   </a>
                 </li>
                 <li class="mt-3">
                   <a class="text-gray-500 cursor-pointer hover:text-gray-900">
-                    ~
+                    FAQ
                   </a>
                 </li>
               </nav>
