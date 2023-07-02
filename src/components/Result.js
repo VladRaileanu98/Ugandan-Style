@@ -36,15 +36,13 @@ const Result = ({ showResult, quizs, marks, quizScore, startOver }) => {
           <div className="col-lg-6">
             <div
               className={`text-dark text-center p-5 rounded ${
-                marks > (quizs.length * 1) / 2
+                marks > quizScore / 2
                   ? "bg-gradient-to-r from-gray-100  to-gray-200"
                   : "bg-danger"
               }`}
             >
               <h1 className="mb-2 fw-bold">
-                {marks > (quizs.length * 1) / 2
-                  ? "Congratulations!"
-                  : "Try again!"}
+                {marks > quizScore / 2 ? "Congratulations!" : "Try again!"}
               </h1>
               <h3 className="mb-3 fw-bold">
                 Your score is {marks} out of {quizScore}

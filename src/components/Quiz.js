@@ -58,7 +58,7 @@ const Quiz = ({
                 </button>
               ) : (
                 <button
-                  className="btn py-2 w-100 mt-3 bg-primary text-light fw-bold"
+                  className="btn py-2 w-100 mt-3 bg-dark text-light fw-bold"
                   onClick={showTheResult}
                   disabled={!selectedAnswer}
                 >
