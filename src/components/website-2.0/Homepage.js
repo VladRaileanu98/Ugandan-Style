@@ -7,6 +7,7 @@ import UserService from "../../services/UserService";
 import Select from "react-dropdown-select";
 import MessageService from "../../services/MessageService";
 import "../trainer/Popup.css";
+import Collapsible from "react-collapsible";
 
 function Homepage() {
   const [courses, setCourses] = useState([]);
@@ -21,6 +22,8 @@ function Homepage() {
   const [users, setUsers] = useState();
   const [loading, setLoading] = useState(true);
   const [aValue, setAValue] = useState();
+  const [sentMessages, setSentMessages] = useState();
+  const [receivedMessages, setReceivedMessages] = useState();
 
   var today = new Date();
   const handleClickOpen = () => {
@@ -28,6 +31,38 @@ function Homepage() {
   };
   const closePopup = () => {
     setPop(false);
+  };
+
+  const getSent = () => {
+    axios
+      .get(
+        "http://localhost:8080/user/" +
+          window.localStorage.getItem("user_id") +
+          "/messages-sent"
+      )
+      .then((response) => {
+        setSentMessages(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const getReceived = () => {
+    axios
+      .get(
+        "http://localhost:8080/user/" +
+          window.localStorage.getItem("user_id") +
+          "/messages-received"
+      )
+      .then((response) => {
+        setReceivedMessages(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const saveMessage = () => {
@@ -57,6 +92,8 @@ function Homepage() {
     //getAllCourses();
     getUserCourses();
     getAllCourses();
+    getReceived(window.localStorage.getItem("user_id"));
+    getSent(window.localStorage.getItem("user_id"));
     setUserName(window.localStorage.getItem("user_name"));
     const fetchData = async () => {
       setLoading(true);
@@ -104,11 +141,10 @@ function Homepage() {
 
   return (
     <div>
-      <button onClick={handleClickOpen}>Open popup</button>
       <div>
         {popup ? (
           <div className="main">
-            <div className="popup">
+            <div className="popup border-2">
               <div className="popup-header text-center">
                 <h1>Send a message</h1>
                 <h1 onClick={closePopup}>X</h1>
@@ -136,19 +172,7 @@ function Homepage() {
                     setContent(e.target.value);
                     setSender(window.localStorage.getItem("user_id"));
                     setReceiver(aValue);
-                    setTime(
-                      today.getFullYear() +
-                        "/" +
-                        today.getMonth() +
-                        "/" +
-                        today.getDate() +
-                        "  " +
-                        today.getHours() +
-                        ":" +
-                        today.getMinutes() +
-                        ":" +
-                        today.getSeconds()
-                    );
+                    setTime(today.getHours() + ":" + today.getMinutes());
                   }}
                 ></input>
               </div>
@@ -160,6 +184,28 @@ function Homepage() {
                   >
                     send message
                   </button>
+                </div>
+                <div class="bg-white text-black border-2 rounded">
+                  <Collapsible trigger="send messages">
+                    {sentMessages.map((message) => (
+                      <label class="block text-gray-700 bg-slate-200 text-sm  font-bold mb-2">
+                        <div className="ml-4">
+                          to:{message.receiverId} - {message.time}
+                        </div>
+                        <div className="ml-4">{message.content} </div>
+                      </label>
+                    ))}
+                  </Collapsible>
+                  <Collapsible class="ml-4" trigger="received messages">
+                    {receivedMessages.map((message) => (
+                      <label class="block text-gray-700 bg-slate-200 text-sm  font-bold mb-2">
+                        <div className="ml-4">
+                          from:{message.receiverId} - {message.time}
+                        </div>
+                        <div className="ml-4">{message.content} </div>
+                      </label>
+                    ))}
+                  </Collapsible>
                 </div>
               </div>
             </div>
@@ -201,8 +247,8 @@ function Homepage() {
                 )}
                 <li>
                   <a
-                    href="/course/showAll"
-                    class="block py-2 pl-3 pr-4 text-zinc-900 rounded md:bg-emerald-400 hover:bg-gray-100 md:hover:bg-emerald-500 md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-zinc-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                    onClick={handleClickOpen}
+                    class="block py-2 pl-3 pr-4 text-zinc-900 rounded md:bg-emerald-300 hover:bg-gray-100 md:hover:bg-emerald-500 md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-zinc-700 dark:hover:text-white md:dark:hover:bg-transparent"
                   >
                     messages
                   </a>
