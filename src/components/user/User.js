@@ -13,12 +13,13 @@ const User = ({ user, deleteUser }) => {
 
   const userCoursePage = (e, id1, id2) => {
     e.preventDefault();
-    navigate(`/user/${user.id}/course/${id2}`, {
-      state: {
-        userId: id1,
-        courseId: id2,
-      },
-    });
+    navigate(`/user/${user.id}/grades`);
+    // navigate(`/user/${user.id}/grades/${id2}`, {
+    //   state: {
+    //     userId: id1,
+    //     courseId: id2,
+    //   },
+    // });
   };
 
   const [courses, setCourses] = useState();

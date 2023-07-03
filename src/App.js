@@ -32,6 +32,7 @@ import AddQuizComponent from "./components/trainer/AddQuizComponent";
 import AddLessonComponent from "./components/trainer/AddLessonComponent";
 import AddQuestionComponent from "./components/trainer/AddQuestionComponent";
 import AddChoiceComponent from "./components/trainer/AddChoiceComponent";
+import ListGradesComponent from "./components/trainer/ListGradesComponent";
 import UpdateQuizComponent from "./components/trainer/UpdateQuizComponent";
 import UpdateQuestionComponent from "./components/trainer/UpdateQuestionComponent";
 import UpdateChoiceComponent from "./components/trainer/UpdateChoiceComponent";
@@ -182,6 +183,7 @@ class App extends Component {
             <Route path="/user/update/:id" element={<UpdateUser />} />
             <Route path="/course/update/:id" element={<UpdateCourse />} />
             {/* <Route path="/user/:id/course/:id" element={<UserCoursePage />} /> */}
+            <Route path="/user/:id/grades" element={<ListGradesComponent />} />
             {/* <Route path="/embedded/video" element={<EmbeddedVideo />} /> */}
             <Route path="/embedded/video" element={<SendMessageComponent />} />
             {/* quiz forms */}
