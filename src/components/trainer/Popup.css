@@ -10,6 +10,7 @@
   width: 50%;
   background-color: white;
   position: absolute;
+  z-index: 10;
   top: 25%;
   right: 25%;
   align-items: center;

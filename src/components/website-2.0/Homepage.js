@@ -4,17 +4,77 @@ import CourseService from "../../services/CourseService";
 import AuthService from "../../services/auth.service";
 import axios, { all } from "axios";
 import UserService from "../../services/UserService";
+import Select from "react-dropdown-select";
+import MessageService from "../../services/MessageService";
+import "../trainer/Popup.css";
+
 function Homepage() {
   const [courses, setCourses] = useState([]);
   const [allcourses, setAllCourses] = useState([]);
   const [userName, setUserName] = useState("");
+
+  const [popup, setPop] = useState(false);
+  const [time, setTime] = useState("10:28");
+  const [content, setContent] = useState();
+  const [senderId, setSender] = useState();
+  const [receiverId, setReceiver] = useState();
+  const [users, setUsers] = useState();
+  const [loading, setLoading] = useState(true);
+  const [aValue, setAValue] = useState();
+
+  var today = new Date();
+  const handleClickOpen = () => {
+    setPop(!popup);
+  };
+  const closePopup = () => {
+    setPop(false);
+  };
+
+  const saveMessage = () => {
+    const messageEntity = { content, senderId, receiverId, time };
+    //setContent(val);
+    //setSender(window.localStorage.getItem("user_id"));
+    //setReceiver(aValue);
+    //setTime("10:44");
+    console.log(content);
+    console.log(time);
+    console.log("sender id: " + window.localStorage.getItem("user_id"));
+    console.log("receiver id: " + aValue);
+    MessageService.createMessage(messageEntity)
+      .then((response) => {
+        console.log(
+          "response din save message" + JSON.stringify(response.data)
+        );
+        setPop(false);
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      });
+    alert("succesfully sent private message");
+  };
 
   useEffect(() => {
     //getAllCourses();
     getUserCourses();
     getAllCourses();
     setUserName(window.localStorage.getItem("user_name"));
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const response = await UserService.getUsers();
+        console.log(response.data);
+        setUsers(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+      setLoading(false);
+    };
+    fetchData();
   }, []);
+
+  const items = users?.map((user) => {
+    return { id: user.id, name: user.username };
+  });
 
   const getAllCourses = () => {
     CourseService.getCourses()
@@ -44,6 +104,70 @@ function Homepage() {
 
   return (
     <div>
+      <button onClick={handleClickOpen}>Open popup</button>
+      <div>
+        {popup ? (
+          <div className="main">
+            <div className="popup">
+              <div className="popup-header text-center">
+                <h1>Send a message</h1>
+                <h1 onClick={closePopup}>X</h1>
+              </div>
+              <div class="text-center">
+                <p>- select the user and send the message -</p>
+              </div>
+              <div>
+                <Select
+                  name="select"
+                  options={items}
+                  labelField="name"
+                  valueField="id"
+                  onChange={(items) => setAValue(items[0].id)}
+                ></Select>
+              </div>
+
+              <div className="form-group mt-1 ">
+                <input
+                  type="text"
+                  placeholder="Enter message content"
+                  name="content"
+                  className="form-control"
+                  onChange={(e) => {
+                    setContent(e.target.value);
+                    setSender(window.localStorage.getItem("user_id"));
+                    setReceiver(aValue);
+                    setTime(
+                      today.getFullYear() +
+                        "/" +
+                        today.getMonth() +
+                        "/" +
+                        today.getDate() +
+                        "  " +
+                        today.getHours() +
+                        ":" +
+                        today.getMinutes() +
+                        ":" +
+                        today.getSeconds()
+                    );
+                  }}
+                ></input>
+              </div>
+              <div class="container">
+                <div className="text-center">
+                  <button
+                    onClick={saveMessage}
+                    className="rounded bg-slate-800 text-white px-6 py-2 font-semibold"
+                  >
+                    send message
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
       <header>
         <nav class="bg-zinc-300 border-zinc-200 dark:bg-zinc-900">
           <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto ">
@@ -75,7 +199,14 @@ function Homepage() {
                     </a>
                   </li>
                 )}
-
+                <li>
+                  <a
+                    href="/course/showAll"
+                    class="block py-2 pl-3 pr-4 text-zinc-900 rounded md:bg-emerald-400 hover:bg-gray-100 md:hover:bg-emerald-500 md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-zinc-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  >
+                    messages
+                  </a>
+                </li>
                 <li>
                   <a
                     href="/course/showAll"
